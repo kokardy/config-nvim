@@ -1,2 +1,3 @@
 # config-nvim
-neovim config
+自分用neovim config
+~/.config/nvimの中のファイルのリポジトリ
