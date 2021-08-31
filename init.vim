@@ -15,6 +15,7 @@ let mapleader = "\<Space>"
 nnoremap <leader>a ggVG"+y
 
 call plug#begin('~/.vim/plugged')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'psf/black'
   Plug 'tpope/vim-surround'
   Plug 'rust-lang/rust.vim'
@@ -22,16 +23,36 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'mattn/emmet-vim'
   Plug 'tomtom/tcomment_vim'
-  Plug 'tpope/vim-surround'
   Plug 'alvan/vim-closetag'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'thinca/vim-quickrun'
+
 call plug#end()
 
+""""""""""""""""""""""""""""""""""""""""""
+" BLACK
+autocmd bufWritePost *.py :Black
+
+""""""""""""""""""""""""""""""""""""""""""
 "indent guid on
 let g:indent_guides_enable_on_vim_startup = 1
 
+""""""""""""""""""""""""""""""""""""""""""
 "NERDTree toggle
 nnoremap <C-t> :NERDTreeToggle<CR>
 
+""""""""""""""""""""""""""""""""""""""""""
+" vim-airline settings
+let g:airline_theme = 'wombat'
+set laststatus=2
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""
+" closetag settings
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
