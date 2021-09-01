@@ -15,15 +15,15 @@ let mapleader = "\<Space>"
 nnoremap <leader>a ggVG"+y
 
 call plug#begin('~/.vim/plugged')
+  Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
+  Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
+  Plug 'psf/black', {'for': 'python'}
+  Plug 'rust-lang/rust.vim', {'for': 'rust'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'psf/black'
+  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'tpope/vim-surround'
-  Plug 'rust-lang/rust.vim'
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'scrooloose/nerdtree'
-  Plug 'mattn/emmet-vim'
   Plug 'tomtom/tcomment_vim'
-  Plug 'alvan/vim-closetag'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'thinca/vim-quickrun'
