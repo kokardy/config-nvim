@@ -16,7 +16,7 @@ let mapleader = "\<Space>"
 
 nnoremap <leader>a ggVG"+y
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
   Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
   Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
   Plug 'psf/black', {'for': 'python'}
