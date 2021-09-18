@@ -30,7 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'thinca/vim-quickrun'
-  end
+  endif
 
 call plug#end()
 
