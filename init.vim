@@ -7,8 +7,6 @@ set splitright
 set clipboard=unnamed
 set hls
 
-colorscheme ron
-
 nnoremap j gj
 nnoremap k gk
 
@@ -30,9 +28,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'thinca/vim-quickrun'
+    Plug 'tomasr/molokai'
   endif
 
 call plug#end()
+
+if !exists('g:vscode')
+  colorscheme molokai
+  " colorscheme ron
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
 " BLACK
