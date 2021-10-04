@@ -16,31 +16,41 @@ let mapleader = "\<Space>"
 nnoremap <leader>a ggVG"+y
 
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
-  Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
-  Plug 'psf/black', {'for': 'python'}
-  Plug 'rust-lang/rust.vim', {'for': 'rust'}
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'tpope/vim-surround'
-  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
   Plug 'tomtom/tcomment_vim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'thinca/vim-quickrun'
+  Plug 'psf/black', {'for': ['python']}
+  Plug 'rust-lang/rust.vim', {'for': ['rust']}
+  if !exists('g:vscode')
+    Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'thinca/vim-quickrun'
+    Plug 'tomasr/molokai'
+  endif
 
 call plug#end()
 
+if !exists('g:vscode')
+  colorscheme molokai
+  " colorscheme ron
+endif
+
 """"""""""""""""""""""""""""""""""""""""""
 " BLACK
+" VSCodeでは利かない
 autocmd bufWritePost *.py :Black
 
 """"""""""""""""""""""""""""""""""""""""""
-"indent guid on
+" indent guid on
 let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""
-"NERDTree toggle
+" NERDTree toggle
+" VSCodeでは利かない
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -54,6 +64,7 @@ let g:airline#extensions#whitespace#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 " closetag settings
+" VSCodeでは利かない
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
