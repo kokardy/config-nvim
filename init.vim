@@ -6,6 +6,7 @@ set expandtab
 set splitright
 set clipboard=unnamed
 set hls
+colorscheme ron
 
 nnoremap j gj
 nnoremap k gk
