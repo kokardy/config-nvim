@@ -6,13 +6,19 @@ set expandtab
 set splitright
 set clipboard=unnamed
 set hls
+
+" background 半透明
+set pumblend=3
+
 colorscheme ron
+
 
 nnoremap j gj
 nnoremap k gk
 
 let mapleader = "\<Space>"
 
+" <leader> a で全選択コピー
 nnoremap <leader>a ggVG"+y
 
 call plug#begin('~/.config/nvim/plugged')
@@ -29,14 +35,45 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'thinca/vim-quickrun'
+    Plug 'nvim-treesitter/nvim-treesitter', {'merged': 0}
+
+    """""""""""""""""" colorschemes """""""""""""""""""""    
     Plug 'tomasr/molokai'
+    Plug 'tpope/vim-vividchalk'
+    Plug 'mrkn/mrkn256.vim'
+
+    " Plug 'sickill/vim-sunburst'
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'w0ng/vim-hybrid'
+    " Plug 'jdkanani/vim-material-theme'
+    """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
 
 call plug#end()
 
 if !exists('g:vscode')
-  colorscheme molokai
-  " colorscheme ron
+  colorscheme mrkn256
+  " colorscheme molokai
+  " colorscheme vividchalk
+  " colorscheme hybrid
+  " colorscheme codedark
+  "
+  """""""""""""" treesitter config
+  lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true,
+  },
+  highlight = {
+    enable = true,
+    disable = {
+      -- 'c_sharp',
+      -- 'vue',
+    }
+  },
+}
+EOF
+  """"""" treesitter config end
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
