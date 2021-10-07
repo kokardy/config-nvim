@@ -58,7 +58,9 @@ if !exists('g:vscode')
   " colorscheme hybrid
   " colorscheme codedark
   "
-  """""""""""""" treesitter config
+  """""""""""""""""""""""""""""""""""""""""""
+  " treesitter config lua
+  
   lua <<EOF
 require'nvim-treesitter.configs'.setup {
   indent = {
@@ -73,7 +75,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-  """"""" treesitter config end
+
+  """"""" treesitter config end """""""""""""
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
