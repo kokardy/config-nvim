@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'psf/black', {'for': ['python']}
   Plug 'rust-lang/rust.vim', {'for': ['rust']}
   if !exists('g:vscode')
+    Plug 'mattn/vim-goimports'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -79,10 +80,17 @@ EOF
   """"""" treesitter config end """""""""""""
 endif
 
+
+
 """"""""""""""""""""""""""""""""""""""""""
-" BLACK
+" 自動フォーマット系
+"
+" Python BLACK
 " VSCodeでは利かない
 autocmd bufWritePost *.py :Black
+
+" Go vim-goimports
+let g:goimports = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 " indent guid on
