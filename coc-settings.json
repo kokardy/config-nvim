@@ -1,0 +1,15 @@
+{
+        // diagnostic
+        "diagnostic.enable": true,
+
+        // python linting
+        "python.linting.enabled": true,
+        "python.linting.mypyEnabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.mypyPath": "~/.local/bin/mypy",
+
+        // python formatting
+        "python.formatting.blackPath": "~/.local/bin/black"
+
+
+}
