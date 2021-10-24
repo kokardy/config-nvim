@@ -7,6 +7,8 @@ set splitright
 set clipboard=unnamed
 set hls
 
+set showmatch
+
 " background 半透明
 set pumblend=3
 
@@ -27,6 +29,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tomtom/tcomment_vim'
   Plug 'psf/black', {'for': ['python']}
   Plug 'rust-lang/rust.vim', {'for': ['rust']}
+  Plug 'junegunn/vim-easy-align'
+  Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
     Plug 'mattn/vim-goimports'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
@@ -49,6 +53,10 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'jdkanani/vim-material-theme'
     """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
+
+" markdown table align
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 call plug#end()
 "Plug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
