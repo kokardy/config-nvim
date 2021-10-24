@@ -1,0 +1,13 @@
+{
+  "coc.preferences.useQuickfixForLocations": true,
+
+  "coc.preferences.formatOnSaveFiletypes": ["python","go"],
+  //
+  "python.linting.enabled": true,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.flake8Enabled": true,
+
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/home/magician1/.local/bin/black"
+
+}

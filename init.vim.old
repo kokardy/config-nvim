@@ -28,7 +28,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'psf/black', {'for': ['python']}
   Plug 'rust-lang/rust.vim', {'for': ['rust']}
   if !exists('g:vscode')
-    Plug 'mattn/vim-goimports'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -42,6 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tomasr/molokai'
     Plug 'tpope/vim-vividchalk'
     Plug 'mrkn/mrkn256.vim'
+    Plug 'bluz71/vim-moonfly-colors'
 
     " Plug 'sickill/vim-sunburst'
     " Plug 'tomasiser/vim-code-dark'
@@ -49,14 +49,9 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'jdkanani/vim-material-theme'
     """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
-call plug#end()
-"Plug end
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !exists('g:python3_host_prog')
-  let g:python3_host_prog = '/usr/bin/python3'
-endif
 
-"NOT VSCODE
+call plug#end()
+
 if !exists('g:vscode')
   colorscheme mrkn256
   " colorscheme molokai
@@ -64,9 +59,8 @@ if !exists('g:vscode')
   " colorscheme hybrid
   " colorscheme codedark
   "
-  "
-"""""""""""""""""""""""""""""""""""""""""""
-" treesitter config lua
+  """""""""""""""""""""""""""""""""""""""""""
+  " treesitter config lua
   
   lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -82,25 +76,14 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-""""""" treesitter config end """""""""""""
 
-endif "NOT VSCODE END
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  """"""" treesitter config end """""""""""""
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
-" 自動フォーマット系
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" """""""""""""""""""""""""""""""
-" """coc-settings.jsonに移行
-" """Python BLACK VSCodeでは利かない
-" autocmd bufWritePost *.py :Black
-" """""""""""""""""""""""""""""""
-
-" Go vim-goimports
-let g:goimports = 1
+" BLACK
+" VSCodeでは利かない
+autocmd bufWritePost *.py :Black
 
 """"""""""""""""""""""""""""""""""""""""""
 " indent guid on
