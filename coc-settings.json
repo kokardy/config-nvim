@@ -1,15 +1,20 @@
 {
-        // diagnostic
-        "diagnostic.enable": true,
+  // diagnostic
+  "diagnostic.enable": true,
 
-        // python linting
-        "python.linting.enabled": true,
-        "python.linting.mypyEnabled": true,
-        "python.linting.flake8Enabled": true,
-        "python.linting.mypyPath": "~/.local/bin/mypy",
+  "coc.preferences.useQuickfixForLocations": true,
 
-        // python formatting
-        "python.formatting.blackPath": "~/.local/bin/black"
+  "coc.preferences.formatOnSaveFiletypes": ["python","go"],
 
+  // python linting
+  "python.linting.enabled": true,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyPath": "~/.local/bin/mypy",
+
+  // python formatting
+  "python.formatting.blackPath": "~/.local/bin/black",
+  "python.formatting.provider": "black"
 
 }

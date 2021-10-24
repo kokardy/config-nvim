@@ -7,8 +7,6 @@ set splitright
 set clipboard=unnamed
 set hls
 
-set showmatch
-
 " background 半透明
 set pumblend=3
 
@@ -29,10 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tomtom/tcomment_vim'
   Plug 'psf/black', {'for': ['python']}
   Plug 'rust-lang/rust.vim', {'for': ['rust']}
-  Plug 'junegunn/vim-easy-align'
-  Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
-    Plug 'mattn/vim-goimports'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -46,6 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tomasr/molokai'
     Plug 'tpope/vim-vividchalk'
     Plug 'mrkn/mrkn256.vim'
+    Plug 'bluz71/vim-moonfly-colors'
 
     " Plug 'sickill/vim-sunburst'
     " Plug 'tomasiser/vim-code-dark'
@@ -54,17 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
     """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
 
-" markdown table align
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
 call plug#end()
-"Plug end
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !exists('g:python3_host_prog')
-  let g:python3_host_prog = '/usr/bin/python3'
-endif
 
-"NOT VSCODE
 if !exists('g:vscode')
   colorscheme mrkn256
   " colorscheme molokai
@@ -72,9 +59,8 @@ if !exists('g:vscode')
   " colorscheme hybrid
   " colorscheme codedark
   "
-  "
-"""""""""""""""""""""""""""""""""""""""""""
-" treesitter config lua
+  """""""""""""""""""""""""""""""""""""""""""
+  " treesitter config lua
   
   lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -90,25 +76,14 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-""""""" treesitter config end """""""""""""
 
-endif "NOT VSCODE END
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  """"""" treesitter config end """""""""""""
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
-" 自動フォーマット系
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" """""""""""""""""""""""""""""""
-" """coc-settings.jsonに移行
-" """Python BLACK VSCodeでは利かない
-" autocmd bufWritePost *.py :Black
-" """""""""""""""""""""""""""""""
-
-" Go vim-goimports
-let g:goimports = 1
+" BLACK
+" VSCodeでは利かない
+autocmd bufWritePost *.py :Black
 
 """"""""""""""""""""""""""""""""""""""""""
 " indent guid on
