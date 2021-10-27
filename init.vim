@@ -32,9 +32,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neovim/nvim-lspconfig'
     Plug 'mattn/vim-goimports'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'vim-airline/vim-airline'
@@ -53,6 +54,23 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'jdkanani/vim-material-theme'
     """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " markdown table align
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
