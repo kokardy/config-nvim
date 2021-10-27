@@ -35,6 +35,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'mattn/vim-goimports'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'mattn/ctrlp-matchfuzzy'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
     Plug 'nathanaelkane/vim-indent-guides'
@@ -74,6 +76,13 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " markdown table align
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+" ctrlP FuzzyFinder
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" ctrlP faster match func
+" neovimだと利かない？
+" let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
 call plug#end()
 "Plug end
