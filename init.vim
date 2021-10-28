@@ -71,6 +71,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" golang struct tag
+autocmd FileType go nmap <leader>tj :CocCommand go.tags.add json<cr>
+autocmd FileType go nmap <leader>ty :CocCommand go.tags.add yaml<cr>
+autocmd FileType go nmap <leader>tp :CocCommand go.tags.add.prompt<cr>
+autocmd FileType go nmap <leader>tc :CocCommand go.tags.clear.line<cr>
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 

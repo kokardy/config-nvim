@@ -11,6 +11,42 @@
   "python.linting.pycodestyleEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.mypyPath": "~/.local/bin/mypy"
+  "python.linting.mypyPath": "~/.local/bin/mypy",
 
+   "languageserver": {
+     "dls": {
+       "command": "diagnostic-languageserver",
+       "args": ["--stdio"],
+       "filetypes": [ "go" ],
+       "initializationOptions": {
+         "linters": {
+           "golint": {
+             "command": "golint",
+             "rootPatterns": [],
+             "isStdout": true,
+             "isStderr": false,
+             "debounce": 100,
+             "args": ["%filepath"],
+             "offsetLine": 0,
+             "offsetColumn": 0,
+             "sourceName": "golint",
+             "formatLines": 1,
+             "formatPattern": [
+               "^[^:]+:(\\d+):(\\d+):\\s(.*)$",
+               {
+                 "line": 1,
+                 "column": 2,
+                 "message": [3]
+               }
+             ]
+           }
+         },
+         "formatters": {},
+         "filetypes": {
+           "go": "golint"
+         },
+         "formatFiletypes": {}
+       }
+     }
+   }
 }
