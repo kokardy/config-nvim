@@ -56,6 +56,9 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'jdkanani/vim-material-theme'
     """""""""""""""""""""""""""""""""""""""""""""""""""""
   endif
+call plug#end()
+"Plug end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -90,9 +93,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " neovimだと利かない？
 " let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
-call plug#end()
-"Plug end
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !exists('g:python3_host_prog')
   let g:python3_host_prog = '/usr/bin/python3'
 endif
