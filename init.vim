@@ -25,6 +25,7 @@ nnoremap <leader>a ggVG"+y
 
 call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
   Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
   Plug 'tomtom/tcomment_vim'
   Plug 'psf/black', {'for': ['python']}
