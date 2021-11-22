@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
+    Plug 'mechatroner/rainbow_csv'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'mattn/vim-goimports'
