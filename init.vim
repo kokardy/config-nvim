@@ -8,6 +8,7 @@ set clipboard=unnamed
 set hls
 
 set showmatch
+setlocal cinkeys-=:
 
 " background 半透明
 set pumblend=3
