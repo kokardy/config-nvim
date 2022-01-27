@@ -1,5 +1,4 @@
 set number
-set autoindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -8,10 +7,11 @@ set clipboard=unnamed
 set hls
 
 set showmatch
-setlocal cinkeys-=:
+set indentkeys-=:
+set cinkeys-=:
 
 " background 半透明
-set pumblend=3
+set pumblend=1
 
 colorscheme ron
 
@@ -34,6 +34,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
+    Plug 'vim-scripts/taglist.vim'
+    Plug 'szw/vim-tags'
     Plug 'mechatroner/rainbow_csv'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
@@ -85,6 +87,14 @@ autocmd FileType go nmap <leader>tc :CocCommand go.tags.clear.line<cr>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " markdown table align
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
@@ -210,3 +220,6 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
+
+filetype indent plugin on
+set smartindent
