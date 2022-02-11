@@ -34,12 +34,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
+    Plug 'sersorrel/vim-lilypond', {'for': ['ly']}
     Plug 'vim-scripts/taglist.vim'
     Plug 'szw/vim-tags'
     Plug 'mechatroner/rainbow_csv'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
-    Plug 'mattn/vim-goimports'
+    " Plug 'mattn/vim-goimports'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mattn/ctrlp-matchfuzzy'
     Plug 'alvan/vim-closetag', {'for': ['html', 'xml']}
@@ -50,7 +51,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'thinca/vim-quickrun'
     Plug 'nvim-treesitter/nvim-treesitter', {'merged': 0}
 
-    """""""""""""""""" colorschemes """""""""""""""""""""    
+    """""""""""""""""" colorschemes """""""""""""""""""""
     Plug 'tomasr/molokai'
     Plug 'tpope/vim-vividchalk'
     Plug 'mrkn/mrkn256.vim'
@@ -100,7 +101,7 @@ endfunction
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " ctrlP FuzzyFinder
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " ctrlP faster match func
 " neovimだと利かない？
@@ -121,7 +122,7 @@ if !exists('g:vscode')
   "
 """""""""""""""""""""""""""""""""""""""""""
 " treesitter config lua
-  
+
   lua <<EOF
 require'nvim-treesitter.configs'.setup {
   indent = {
@@ -154,7 +155,7 @@ command! -nargs=0 Format :call CocAction('format')
 " """""""""""""""""""""""""""""""
 
 " Go vim-goimports
-let g:goimports = 1
+" let g:goimports = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 " indent guid on
