@@ -2,19 +2,19 @@
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": ["python","go"],
 
-  "diagnostic.enable": true,
-
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black",
-
   "python.linting.enabled": true,
   "python.linting.pycodestyleEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyPath": "~/.local/bin/mypy",
 
+  "go.enable": true,
   "go.goplsOptions": {
     "completeUnimported": true
-  }
+  },
 
+  "svelte.enable-ts-plugin": true
 }

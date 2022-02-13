@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
     Plug 'sersorrel/vim-lilypond', {'for': ['ly']}
+    Plug 'bronson/vim-trailing-whitespace'
     Plug 'vim-scripts/taglist.vim'
     Plug 'szw/vim-tags'
     Plug 'mechatroner/rainbow_csv'
@@ -86,6 +87,9 @@ autocmd FileType go nmap <leader>ty :CocCommand go.tags.add yaml<cr>
 autocmd FileType go nmap <leader>tp :CocCommand go.tags.add.prompt<cr>
 autocmd FileType go nmap <leader>tc :CocCommand go.tags.clear.line<cr>
 
+" auto import(organize import)
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -96,6 +100,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+nmap <leader>m :CocList outline -kind method<CR>
 
 " markdown table align
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
