@@ -50,6 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'thinca/vim-quickrun'
     Plug 'nvim-treesitter/nvim-treesitter', {'merged': 0}
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'folke/trouble.nvim'
 
     """""""""""""""""" colorschemes """""""""""""""""""""
     Plug 'tomasr/molokai'
@@ -65,6 +67,15 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 "Plug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" trouble
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -126,6 +137,7 @@ if !exists('g:vscode')
   "
   "
 """""""""""""""""""""""""""""""""""""""""""
+
 " treesitter config lua
 
   lua <<EOF
@@ -173,7 +185,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""
 " vim-airline settings
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'tomorrow'
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
