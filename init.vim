@@ -34,6 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'nvie/vim-flake8'
   if !exists('g:vscode')
+    Plug 'sersorrel/vim-lilypond', {'for': ['ly']}
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'vim-scripts/taglist.vim'
     Plug 'szw/vim-tags'
