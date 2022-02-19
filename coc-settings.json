@@ -1,6 +1,13 @@
 {
   "coc.preferences.useQuickfixForLocations": true,
-  "coc.preferences.formatOnSaveFiletypes": ["python","go"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "go",
+    "js",
+    "svelte",
+    "html"
+  ],
+
 
   "python.analysis.typeCheckingMode": "basic",
   "python.formatting.provider": "black",
