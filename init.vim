@@ -69,14 +69,6 @@ call plug#end()
 "Plug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" trouble
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -138,9 +130,16 @@ if !exists('g:vscode')
   "
   "
 """""""""""""""""""""""""""""""""""""""""""
+" trouble
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
 
 " treesitter config lua
-
   lua <<EOF
 require'nvim-treesitter.configs'.setup {
   indent = {

@@ -23,5 +23,7 @@
     "completeUnimported": true
   },
 
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+
+  "html.autoClosingTags":false
 }
