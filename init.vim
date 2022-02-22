@@ -15,6 +15,9 @@ set pumblend=10
 
 colorscheme ron
 
+set fileencodings=utf-8,sjis
+set fileformats=unix,dos
+
 nnoremap j gj
 nnoremap k gk
 
