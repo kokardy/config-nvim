@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'thinca/vim-quickrun'
-    Plug 'nvim-treesitter/nvim-treesitter', {'merged': 0}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'folke/trouble.nvim'
 
