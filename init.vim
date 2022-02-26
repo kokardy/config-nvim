@@ -77,6 +77,7 @@ call plug#end()
 if !exists('g:vscode')
   runtime init/non_vscode.vim
   runtime init/vgit.vim
+  runtime init/treesitter.vim
 endif
 
 " markdown table align

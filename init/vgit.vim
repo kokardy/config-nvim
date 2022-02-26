@@ -122,7 +122,7 @@ require('vgit').setup({
           enabled = true,
         },
         authorship_code_lens = {
-          enabled = true,
+          enabled = false,
         },
         screen = {
           diff_preference = 'unified',
