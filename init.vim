@@ -55,6 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'folke/trouble.nvim'
+    Plug 't9md/vim-quickhl'
 
     """""""""""""""""" colorschemes """""""""""""""""""""
     Plug 'tomasr/molokai'
@@ -89,6 +90,13 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " ctrlP faster match func
 " neovimだと利かない？
 " let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+"
+
+" quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
 
 if !exists('g:python3_host_prog')
   let g:python3_host_prog = '/usr/bin/python3'
