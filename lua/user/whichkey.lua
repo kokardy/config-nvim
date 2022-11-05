@@ -181,6 +181,11 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+
+  y = {
+    name = "yank",
+    a = {'<cmd>%y<cr>', "yank all"},
+  }
 }
 
 which_key.setup(setup)
