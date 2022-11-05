@@ -11,7 +11,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	symbols = { error = "E ", warn = "W " },
 	colored = false,
 	update_in_insert = false,
 	always_visible = true,
@@ -20,7 +20,7 @@ local diagnostics = {
 local diff = {
 	"diff",
 	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+	symbols = { added = "+ ", modified = "m ", removed = "- " }, -- changes diff symbols
   cond = hide_in_width
 }
 
@@ -40,7 +40,7 @@ local filetype = {
 local branch = {
 	"branch",
 	icons_enabled = true,
-	icon = "",
+	icon = "┣",
 }
 
 local location = {
