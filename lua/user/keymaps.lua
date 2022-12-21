@@ -61,6 +61,11 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
+
+keymap("n", "<C-t>", ":ToggleTerm<CR>", opts)
+-- keymap("t", "<C-t>", "<Esc>:ToggleTerm<CR>", opts)
+keymap("t", "<C-t>", "<Cmd>ToggleTerm<CR>", opts)
+
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
