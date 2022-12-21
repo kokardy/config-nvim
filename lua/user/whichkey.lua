@@ -78,6 +78,7 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
+
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = {
@@ -95,6 +96,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["/"] = { "<cmd>TComment<CR>", "Toggle Comment" },
 
   p = {
     name = "Packer",
