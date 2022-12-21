@@ -78,7 +78,6 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = {
@@ -182,6 +181,12 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+
+  y = {
+    name = "+Yank",
+    a = { 'ggVG"+y', "yank all" },
+    r = { "<cmd>YankyRingHistory<cr>", "yanky ring history" },
   },
 }
 

@@ -62,9 +62,8 @@ return packer.startup(function(use)
   -- dependencies
   use({ "tyru/open-browser.vim" })
 
-
   -- Colorschemes
-  use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
+  -- use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
   -- use("lunarvim/darkplus.nvim")
 
   -- cmp plugins
@@ -95,7 +94,7 @@ return packer.startup(function(use)
   use({ -- 関数名を表示
     "romgrk/nvim-treesitter-context",
     config = function()
-      require("treesitter-context").setup {
+      require("treesitter-context").setup({
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
         throttle = true, -- Throttles plugin updates (may improve performance)
         max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -105,37 +104,25 @@ return packer.startup(function(use)
           -- By setting the 'default' entry below, you can control which nodes you want to
           -- appear in the context window.
           default = {
-            'class',
-            'function',
-            'method',
+            "class",
+            "function",
+            "method",
           },
         },
-      }
-    end
+      })
+    end,
   })
 
   -- Git
   use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
+
   -- utils
   use({ "tpope/vim-repeat" })
   use({ "tpope/vim-surround" })
   use({ "t9md/vim-quickhl" })
-  use({ "gbprod/yanky.nvim",
-    config = function()
-      require("yanky").setup {
-        -- highlight = {
-        --   on_put = true
-        --   on_yank = true
-        --   timer = 500
-        -- }
-      }
-    end })
 
-  use({
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  })
-
+  -- comment
+  use({ "tomtom/tcomment_vim" })
   use({
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -143,44 +130,72 @@ return packer.startup(function(use)
       require("todo-comments").setup()
     end,
   })
+
+  -- yank
+  use({
+    "gbprod/yanky.nvim",
+    config = function()
+      require("yanky").setup({
+        -- highlight = {
+        --   on_put = true
+        --   on_yank = true
+        --   timer = 500
+        -- }
+      })
+    end,
+  })
+
+  -- trouble
+  use({
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  })
+
   -- markdown
-  use({ "preservim/vim-markdown",
+  use({
+    "preservim/vim-markdown",
+    ft = { "markdown" },
     config = function()
       vim.g.vim_markdown_folding_disabled = 1
     end,
     require = "godlygeek/tabular",
   })
-  use({ "iamcco/markdown-preview.nvim",
+  use({
+    "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = { "markdown" },
     config = function()
-      vim.g.mkdp_browser = 'firefox'
+      vim.g.mkdp_browser = "firefox"
     end,
+    requires = { "tyru/open-browser.vim" },
+    wants = { "open-browser" },
   })
-  use({ "mattn/vim-maketable" })
+  use({ "mattn/vim-maketable", ft = { "markdown" } })
 
   -- plantuml
-  use({ "weirongxu/plantuml-previewer.vim", ft={"plantuml", "uml"} })
-  use({ "aklt/plantuml-syntax", ft={"plantuml", "uml"} })
+  use({
+    "weirongxu/plantuml-previewer.vim",
+    ft = { "plantuml" },
+    requires = { "tyru/open-browser.vim" },
+    wants = { "open-browser" },
+  })
+  use({ "aklt/plantuml-syntax", ft = { "plantuml" } })
 
   -- csv
-  use({ "mechatroner/rainbow_csv" })
+  use({ "mechatroner/rainbow_csv", ft = { "csv" } })
 
   -- github
-  use({ "pwntester/octo.nvim",
+  use({
+    "pwntester/octo.nvim",
     requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "kyazdani42/nvim-web-devicons",
     },
     config = function()
       require("octo").setup()
     end,
   })
-
-  -- comment out
-  use({"tomtom/tcomment_vim"})
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
