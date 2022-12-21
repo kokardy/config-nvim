@@ -160,8 +160,8 @@ return packer.startup(function(use)
   use({ "mattn/vim-maketable" })
 
   -- plantuml
-  use({ "weirongxu/plantuml-previewer.vim" })
-  use({ "aklt/plantuml-syntax" })
+  use({ "weirongxu/plantuml-previewer.vim", ft={"plantuml", "uml"} })
+  use({ "aklt/plantuml-syntax", ft={"plantuml", "uml"} })
 
   -- csv
   use({ "mechatroner/rainbow_csv" })
