@@ -11,9 +11,20 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
+		-- format
+		formatting.prettier.with({
+			filetypes = { "javascript", "typescript", "json" },
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		}),
+		formatting.isort.with({ filetypes = { "python" } }),
+		formatting.black.with({ filetypes = { "python" }, extra_args = { "--fast" } }),
+		formatting.remark.with({ filetypes = { "markdown" } }),
 		formatting.stylua,
-    -- diagnostics.flake8
+
+		-- diagnostics
+		-- diagnostics.flake8
+		diagnostics.mypy.with({ filetype = { "python" }, extra_args = { "--strict" } }),
+		diagnostics.pyproject_flake8.with({ filetype = { "python" } }),
+		diagnostics.jsonlint.with({ filetype = { "json" } }),
 	},
 })
