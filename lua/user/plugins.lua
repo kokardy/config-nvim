@@ -202,6 +202,9 @@ return packer.startup(function(use)
   use({ "tpope/vim-surround" })
   use({ "t9md/vim-quickhl" })
 
+  -- prevent from saving typo file
+  use({ "tyru/stoptypofile.vim" })
+
   -- comment
   use({
     "folke/todo-comments.nvim",
