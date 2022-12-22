@@ -19,13 +19,13 @@ null_ls.setup({
     formatting.isort.with({ filetypes = { "python" } }),
     formatting.black.with({ filetypes = { "python" }, extra_args = { "--fast" } }),
     formatting.remark.with({ filetypes = { "markdown" } }),
-    formatting.stylua.with({
-      filetypes = { "lua" },
-      extra_args = {
-        "--indent-type=Spaces",
-        "--indent-width=2",
-      },
-    }),
+    -- formatting.stylua.with({
+    --   filetypes = { "lua" },
+    --   extra_args = {
+    --     "--indent-type=Spaces",
+    --     "--indent-width=2",
+    --   },
+    -- }),
 
     -- diagnostics
     -- diagnostics.flake8
