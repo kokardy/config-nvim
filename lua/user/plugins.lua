@@ -234,6 +234,9 @@ return packer.startup(function(use)
     cmd = "TroubleToggle",
   })
 
+  -- browser
+  --[[ use({ "tyru/open-browser.vim" }) ]]
+
   -- markdown
   use({
     "preservim/vim-markdown",
@@ -250,8 +253,7 @@ return packer.startup(function(use)
     config = function()
       vim.g.mkdp_browser = "firefox"
     end,
-    requires = { "tyru/open-browser.vim" },
-    wants = { "open-browser" },
+    requires = { { "tyru/open-browser.vim", opt = true, }, },
   })
   use({ "mattn/vim-maketable", ft = { "markdown" } })
 
@@ -259,8 +261,7 @@ return packer.startup(function(use)
   use({
     "weirongxu/plantuml-previewer.vim",
     ft = { "plantuml" },
-    requires = { "tyru/open-browser.vim" },
-    wants = { "open-browser" },
+    requires = { { "tyru/open-browser.vim", opt = true, }, },
   })
   use({ "aklt/plantuml-syntax", ft = { "plantuml" } })
 
