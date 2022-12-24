@@ -30,6 +30,22 @@ require("dapui").setup({
       size = 0.27,
       position = "bottom",
     },
+    controls = {
+      -- Requires Neovim nightly (or 0.8 when released)
+      enabled = true,
+      -- Display controls in this element
+      element = "repl",
+      icons = {
+        pause = "⏸",
+        play = "▶",
+        step_into = "ℹ",
+        step_over = "次",
+        step_out = "Out",
+        step_back = "前",
+        run_last = "⇓",
+        terminate = "⏹",
+      },
+    },
   },
   floating = {
     max_height = 0.9,
