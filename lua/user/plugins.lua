@@ -282,10 +282,27 @@ return packer.startup(function(use)
   })
 
   -- debug
-  use({ 'mfussenegger/nvim-dap' })
-  use({ 'rcarriga/nvim-dap-ui' })
-  use({ 'mfussenegger/nvim-dap-python' })
-  use({ "theHamsta/nvim-dap-virtual-text" })
+  use({"mfussenegger/nvim-dap"})
+  use({
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      "mortepau/codicons.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+    ft = {
+      "python",
+      "go",
+      --[[ "lua", ]]
+      --[[ "javasript", ]]
+      --[[ "typescript", ]]
+      --[[ "julia", ]]
+      --[[ "haskell", ]]
+    },
+  })
+  use({
+    'mfussenegger/nvim-dap-python',
+    ft = { "python" },
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
