@@ -197,10 +197,15 @@ return packer.startup(function(use)
     --commit = "c18e016864c92ecf9775abea1baaa161c28082c3",
   })
 
-  -- utils
+  -- surround
   use({ "tpope/vim-repeat" })
   use({ "tpope/vim-surround" })
+
+  -- hightlight
   use({ "t9md/vim-quickhl" })
+
+  -- nerdfont
+  use({"lambdalisue/nerdfont.vim"})
 
   -- prevent from saving typo file
   use({ "tyru/stoptypofile.vim" })
@@ -282,12 +287,13 @@ return packer.startup(function(use)
   })
 
   -- debug
-  use({"mfussenegger/nvim-dap"})
   use({
     'rcarriga/nvim-dap-ui',
     requires = {
       "mortepau/codicons.nvim",
       "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap",
+      { 'mfussenegger/nvim-dap-python', tf = { "python" } },
     },
     ft = {
       "python",
@@ -298,10 +304,9 @@ return packer.startup(function(use)
       --[[ "julia", ]]
       --[[ "haskell", ]]
     },
-  })
-  use({
-    'mfussenegger/nvim-dap-python',
-    ft = { "python" },
+    config = function() 
+      require("user.dap.init").setup()
+    end
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
