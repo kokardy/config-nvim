@@ -201,8 +201,15 @@ return packer.startup(function(use)
   })
 
   -- surround
-  use({ "tpope/vim-repeat" })
-  use({ "tpope/vim-surround" })
+  --[[ use({ "tpope/vim-repeat" }) ]]
+  --[[ use({ "tpope/vim-surround" }) ]]
+  use({ "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  })
 
   -- hightlight
   use({ "t9md/vim-quickhl" })
@@ -313,7 +320,7 @@ return packer.startup(function(use)
   })
 
   -- quickfix preview
-  use({"kevinhwang91/nvim-bqf"})
+  use({ "kevinhwang91/nvim-bqf" })
 
   -- mark
   use({ "chentoast/marks.nvim",
