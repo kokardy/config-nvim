@@ -180,6 +180,15 @@ local mappings = {
       "Workspace Symbols",
     },
   },
+
+  n = {
+    name = "Neogen",
+    n = { "<cmd>Neogen<cr>", "Neogen" },
+    f = { "<cmd>Neogen func<cr>", "Neogen func" },
+    t = { "<cmd>Neogen type<cr>", "Neogen type" },
+    c = { "<cmd>Neogen class<cr>", "Neogen class" },
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
