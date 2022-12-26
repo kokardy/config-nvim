@@ -57,6 +57,9 @@ return packer.startup(function(use)
   use({
     "numToStr/Comment.nvim",
     --commit = "2c26a00f32b190390b664e56e32fd5347613b9e2"
+    config = function()
+      require("Comment").setup()
+    end
   })
   use({
     "JoosepAlviste/nvim-ts-context-commentstring",
