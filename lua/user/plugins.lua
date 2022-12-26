@@ -312,6 +312,9 @@ return packer.startup(function(use)
     end
   })
 
+  -- quickfix preview
+  use({"kevinhwang91/nvim-bqf"})
+
   -- mark
   use({ "chentoast/marks.nvim",
     config = function()
