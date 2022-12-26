@@ -1,13 +1,4 @@
 local M = {}
-local utf8 = require("submodules.utf8.lua.utf8")
-local debug_pause = utf8.char(0xead1)
-local debug_play = utf8.char(0xead3)
-local debug_step_into = utf8.char(0xead4)
-local debug_step_over = utf8.char(0xead6)
-local debug_step_out = utf8.char(0xead5)
-local debug_step_back = utf8.char(0xeb8f)
-local debug_run_last = utf8.char(0xfb00)
-local debug_terminate = utf8.char(0xead7)
 
 M.setup = function()
   require("nvim-dap-virtual-text").setup()
@@ -48,16 +39,16 @@ M.setup = function()
       enabled = true,
       -- Display controls in this element
       element = "repl",
-      icons = {
-        pause = debug_pause,
-        play = debug_play,
-        step_into = debug_step_into,
-        step_over = debug_step_over,
-        step_out = debug_step_out,
-        step_back = debug_step_back,
-        run_last = debug_run_last,
-        terminate = debug_terminate,
-      },
+      --[[ icons = { ]]
+      --[[   pause = debug_pause, ]]
+      --[[   play = debug_play, ]]
+      --[[   step_into = debug_step_into, ]]
+      --[[   step_over = debug_step_over, ]]
+      --[[   step_out = debug_step_out, ]]
+      --[[   step_back = debug_step_back, ]]
+      --[[   run_last = debug_run_last, ]]
+      --[[   terminate = debug_terminate, ]]
+      --[[ }, ]]
     },
     floating = {
       max_height = 0.9,

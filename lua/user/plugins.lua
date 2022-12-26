@@ -229,6 +229,25 @@ return packer.startup(function(use)
     end,
   })
 
+  -- document
+  use({ "danymat/neogen",
+    config = function()
+      require('neogen').setup({
+        enabled = true,
+        languages = {
+          python = {
+            template = {
+              annotation_convention = "google_docstrings", -- for a full list of annotation_conventions, see supported-languages below,
+              --[[ annotation_convention = "numpydoc", ]]
+              --[[ annotation_convention = "reST", ]]
+            }
+          },
+        }
+      })
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+  })
+
   -- yank
   use({
     "gbprod/yanky.nvim",
@@ -357,6 +376,8 @@ return packer.startup(function(use)
         mappings = {}
       }
     end })
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
