@@ -108,12 +108,16 @@ return packer.startup(function(use)
   use("folke/which-key.nvim")
 
   -- Colorschemes
-  use({ "folke/tokyonight.nvim" })
-  use("lunarvim/darkplus.nvim")
+  --[[ use({ "folke/tokyonight.nvim" }) ]]
+  --[[ use("lunarvim/darkplus.nvim") ]]
 
   -- cmp plugins
   use({
     "hrsh7th/nvim-cmp",
+    -- event={"InsertEnter"},
+    -- setup = function()
+    --   require("user.cmp")
+    -- end,
     --commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a"
   }) -- The completion plugin
   use({
