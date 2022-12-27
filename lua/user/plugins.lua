@@ -234,7 +234,7 @@ return packer.startup(function(use)
     config = function()
       require('neogen').setup({
         enabled = true,
-        snippet_engine="luasnip",
+        snippet_engine = "luasnip",
         languages = {
           python = {
             template = {
@@ -377,6 +377,9 @@ return packer.startup(function(use)
         mappings = {}
       }
     end })
+
+  -- rainbow parentheses
+  use({ "p00f/nvim-ts-rainbow" })
 
 
 
