@@ -145,7 +145,11 @@ return packer.startup(function(use)
   use({
     "L3MON4D3/LuaSnip",
     --commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a"
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+    end
   }) --snippet engine
+
   use({
     "rafamadriz/friendly-snippets",
     --commit = "d27a83a363e61009278b6598703a763ce9c8e617"
