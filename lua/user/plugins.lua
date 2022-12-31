@@ -352,7 +352,7 @@ return packer.startup(function(use)
 
   -- mark
   use({ "chentoast/marks.nvim",
-    config =function ()
+    config = function()
       require("user.marks").config()
     end })
 
@@ -364,7 +364,8 @@ return packer.startup(function(use)
     config = function()
       local sidebar = require("sidebar-nvim")
       local opts = {
-        open = true ,
+        open = true,
+        sections = { "git", "diagnostics" },
       }
       sidebar.setup(opts)
     end,
