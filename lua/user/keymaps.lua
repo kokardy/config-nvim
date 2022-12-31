@@ -66,6 +66,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Space>/", "gcc", {} )
 keymap("v", "<Space>/", "gcc<Esc>", {} )
 
+
 -- Terminal --
 
 keymap("n", "<C-t>", ":ToggleTerm<CR>", opts)
