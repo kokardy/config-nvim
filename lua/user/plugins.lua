@@ -371,7 +371,8 @@ return packer.startup(function(use)
     end,
   })
 
-
+  -- notify
+  use({ "rcarriga/nvim-notify" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
