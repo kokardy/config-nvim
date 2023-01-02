@@ -1,11 +1,10 @@
 local M = {}
-local notify = require("notify").instance()
 
 local yoshi = {
   "             /＼  ／ヽ",
   "            {／￣￣￣ヽ!",
   "            ∠＿＿╋＿＿ｊ",
-  " :w ヨシ!   / (.)八(.)  ヽ",
+  "    ヨシ!   / (.)八(.)  ヽ",
   "           ｛=/(人_)=|´￣)｀ヽ",
   "            ＼ { {_,ﾉ ﾉ   //~ `",
   "        ⊂￣ヽ_＞―――‐''’,〈   (＿)",
@@ -18,22 +17,25 @@ local yoshi = {
   "                       ＼__ﾉ",
 }
 
+M.setup = function(opt)
+  local notify = require("notify").instance(opt)
+  -- create method
+  -- opt.timeout = 300
+  -- opt.animate = false
+  M.show = function()
+    notify.notify(yoshi, "info", opt)
+  end
 
-M.show = function()
-  notify.notify(yoshi, "info", {
-    timeout = 100,
-    animate = false,
-  })
+  -- create vim command
+  vim.api.nvim_create_user_command('Yoshi', M.show, {})
+
+  -- 保存にフック
+  vim.cmd([[
+    augroup yoshi
+      autocmd!
+      autocmd BufWritePost * :Yoshi
+    augroup end
+  ]])
 end
-
-vim.api.nvim_create_user_command('Yoshi', M.show, {})
-
-vim.cmd([[
-  augroup yoshi
-    autocmd!
-    autocmd BufWritePost * :Yoshi
-  augroup end
-]])
-
 
 return M
