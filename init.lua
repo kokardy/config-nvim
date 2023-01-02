@@ -20,4 +20,10 @@ require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
 
-require("user.yoshi")
+require("user.yoshi").setup({
+  title="保存ヨシ!",
+  timeout=250,
+  animate=false,
+  render="simple",
+  stages="slide",
+})
