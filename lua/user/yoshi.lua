@@ -38,4 +38,12 @@ M.setup = function(opt)
   ]])
 end
 
+M.setup({
+  title="保存ヨシ!",
+  timeout=250,
+  animate=false,
+  render="simple",
+  stages="slide",
+})
+
 return M
