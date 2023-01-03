@@ -370,10 +370,21 @@ return packer.startup(function(use)
   --     keymap("n", "<A-k>", "<Plug>(edgemotion-k)<cr>", opts)
   --   end })
 
+  -- matchup
   use({ "andymass/vim-matchup",
     setup = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
+  })
+
+  -- code runner
+  use({ "CRAG666/code_runner.nvim",
+    filetype = {
+      java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+      python = "python3 -u",
+      typescript = "deno run",
+      rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
+    },
   })
 
   -- Automatically set up your configuration after cloning packer.nvim

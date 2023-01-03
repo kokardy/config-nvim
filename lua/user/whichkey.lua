@@ -189,6 +189,22 @@ local mappings = {
     c = { "<cmd>Neogen class<cr>", "Neogen class" },
   },
 
+  r = {
+    name = "Code Runner",
+    -- vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
+    -- vim.keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
+    r = {"<cmd>RunCode<cr>", "Run code"},
+    f = {"<cmd>RunFile<cr>", "Run file"},
+    t = {"<cmd>RunFile tab<cr>", "Run file tab"},
+    p = {"<cmd>RunProject<cr>", "Run project"},
+    c = {"<cmd>RunClose<cr>", "Run close"},
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
