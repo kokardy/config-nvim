@@ -390,6 +390,20 @@ return packer.startup(function(use)
     end
   })
 
+  -- edge motion
+  -- use({ "haya14busa/vim-edgemotion",
+  --   config = function()
+  --     local keymap = vim.api.nvim_set_keymap
+  --     local opts = { noremap = true, silent = true }
+  --     keymap("n", "<A-j>", "<Plug>(edgemotion-j)<cr>", opts)
+  --     keymap("n", "<A-k>", "<Plug>(edgemotion-k)<cr>", opts)
+  --   end })
+
+  use({ "andymass/vim-matchup",
+    setup = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
