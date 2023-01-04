@@ -32,5 +32,9 @@ null_ls.setup({
     diagnostics.mypy.with({ filetype = { "python" }, extra_args = { "--strict" } }),
     diagnostics.pyproject_flake8.with({ filetype = { "python" } }),
     diagnostics.jsonlint.with({ filetype = { "json" } }),
+
+    -- typo
+    require('typos').actions,
+    require('typos').diagnostics,
   },
 })
