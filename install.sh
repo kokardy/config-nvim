@@ -6,7 +6,7 @@ cd ~/.config/nvim
 # dependencies
 sudo apt-get install luarocks
 sudo npm install --global yarn tree-sitter prettier pyright
-cargo install tree-sitter-cli remark stylua ripgrep fd-find
+cargo install tree-sitter-cli remark stylua ripgrep fd-find typos-cli
 
 # font install
 HAKUGEN_VER="v2.8.0"

@@ -196,7 +196,7 @@ return packer.startup(function(use)
   -- nerdfont
   use({ "lambdalisue/nerdfont.vim" })
 
-  -- prevent from saving typo file
+  -- prevent from saving typo file ":w ["
   use({ "tyru/stoptypofile.vim" })
 
   -- comment
@@ -385,6 +385,54 @@ return packer.startup(function(use)
       typescript = "deno run",
       rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
     },
+  })
+
+  -- cursor move highlight
+  use({ 'edluffy/specs.nvim',
+    config = function()
+      require('specs').setup {
+        show_jumps       = true,
+        min_jump         = 5,
+        popup            = {
+          delay_ms = 0, -- delay before popup displays
+          inc_ms = 10, -- time increments used for fade/resize effects
+          blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
+          width = 10,
+          winhl = "PMenu",
+          fader = require('specs').linear_fader,
+          resizer = require('specs').shrink_resizer
+        },
+        ignore_filetypes = {},
+        ignore_buftypes  = {
+          nofile = true,
+        },
+      }
+    end })
+
+  use({ "stonelasley/flare.nvim",
+    config = function()
+      require('flare').setup {
+        enabled = true, -- disable highlighting
+        hl_group = "IncSearch", -- set highlight group used for highlight
+        x_threshold = 5, -- column changes greater than this number trigger highlight
+        y_threshold = 3, -- row changes greater than this number trigger highlight
+        expanse = 10, -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
+        file_ignore = { -- suppress highlighting for files of this type
+          "NvimTree",
+          "fugitive",
+          "TelescopePrompt",
+          "TelescopeResult",
+        },
+        fade = true, -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
+        underline = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
+        timeout = 150, -- timeout delay
+      }
+    end })
+
+
+  -- typo
+  use({ 'poljar/typos.nvim',
+  -- config = function() end,
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
