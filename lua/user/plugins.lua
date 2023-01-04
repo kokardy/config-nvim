@@ -190,7 +190,7 @@ return packer.startup(function(use)
     end,
   })
 
-  -- hightlight
+  -- highlight
   use({ "t9md/vim-quickhl" })
 
   -- nerdfont
@@ -308,7 +308,7 @@ return packer.startup(function(use)
       "python",
       "go",
       --[[ "lua", ]]
-      --[[ "javasript", ]]
+      --[[ "javascript", ]]
       --[[ "typescript", ]]
       --[[ "julia", ]]
       --[[ "haskell", ]]
