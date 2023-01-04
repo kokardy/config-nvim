@@ -93,8 +93,8 @@ return packer.startup(function(use)
   use("folke/which-key.nvim")
 
   -- Colorschemes
-  --[[ use({ "folke/tokyonight.nvim" }) ]]
-  --[[ use("lunarvim/darkplus.nvim") ]]
+  use({ "folke/tokyonight.nvim" })
+  use({ "lunarvim/darkplus.nvim" })
 
   -- cmp plugins
   use({
