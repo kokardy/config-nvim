@@ -4,9 +4,10 @@ set -x
 cd ~/.config/nvim
 
 # dependencies
-sudo apt-get install luarocks
-sudo npm install --global yarn tree-sitter prettier pyright
+sudo apt-get install luarocks xsel
+sudo npm install --global yarn tree-sitter prettier pyright neovim
 cargo install tree-sitter-cli remark stylua ripgrep fd-find typos-cli
+pip install pynvim
 
 # font install
 HAKUGEN_VER="v2.8.0"
