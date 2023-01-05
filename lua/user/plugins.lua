@@ -207,6 +207,28 @@ return packer.startup(function(use)
       require("todo-comments").setup()
     end,
   })
+  use({ "fcying/telescope-ctags-outline.nvim",
+    config = function()
+      require('telescope').setup {
+        extensions = {
+          ctags_outline = {
+            --ctags option
+            ctags = { 'ctags' },
+            --ctags filetype option
+            ft_opt = {
+              vim = '--vim-kinds=fk',
+              lua = '--lua-kinds=fk',
+              go = '--go-kinds=f',
+              rust = '--rust-kinds=fPM',
+              python = '--python-kinds=fm --language-force=Python',
+            },
+          },
+        },
+      }
+
+      require('telescope').load_extension('ctags_outline')
+    end,
+  })
 
   -- document
   use({ "danymat/neogen",
@@ -432,7 +454,7 @@ return packer.startup(function(use)
 
   -- typo
   use({ 'poljar/typos.nvim',
-  -- config = function() end,
+    -- config = function() end,
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
