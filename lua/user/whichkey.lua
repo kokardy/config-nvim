@@ -115,6 +115,7 @@ local mappings = {
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["o"] = {"<cmd>AerialToggle!<CR>", "Toggle outline"},
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
@@ -188,6 +189,7 @@ local mappings = {
     t = { "<cmd>Neogen type<cr>", "Neogen type" },
     c = { "<cmd>Neogen class<cr>", "Neogen class" },
   },
+
 
   r = {
     name = "Code Runner",
