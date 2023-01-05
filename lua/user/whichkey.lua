@@ -209,13 +209,14 @@ local mappings = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    o = { "<cmd>Telescope ctags_outline outline<cr>", "Outline" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
   S = {
