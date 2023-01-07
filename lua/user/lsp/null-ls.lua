@@ -36,5 +36,22 @@ null_ls.setup({
     -- typo
     require('typos').actions,
     require('typos').diagnostics,
+
+    -- root dir
+    root_dir = function(fname)
+      local util = require "lspconfig.util"
+      local root_files = {
+        "pyproject.toml",
+        "package.json",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "Pipfile",
+        "manage.py",
+        "pyrightconfig.json",
+        "go.mod",
+      }
+      return util.root_pattern(unpack(root_files))(fname) or util.root_pattern ".git" (fname) or util.path.dirname(fname)
+    end,
   },
 })
