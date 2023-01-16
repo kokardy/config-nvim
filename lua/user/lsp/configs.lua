@@ -10,6 +10,7 @@ local servers = {
   "sumneko_lua",
   "pyright",
   "gopls",
+  "marksman"
 }
 
 lsp_installer.setup({
