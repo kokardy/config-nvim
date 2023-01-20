@@ -508,6 +508,12 @@ return packer.startup(function(use)
     -- config = function() end,
   })
 
+  -- swap
+  use({"mizlan/iswap.nvim"})
+
+  -- SQL Uppercased
+  use({ "jsborjesson/vim-uppercase-sql" })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
