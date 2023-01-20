@@ -109,13 +109,13 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["h"] = { "<cmd>HopWord<CR>", "Hop Word" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["o"] = {"<cmd>AerialToggle!<CR>", "Toggle outline"},
+  ["o"] = { "<cmd>AerialToggle!<CR>", "Toggle outline" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
@@ -200,11 +200,11 @@ local mappings = {
     -- vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
-    r = {"<cmd>RunCode<cr>", "Run code"},
-    f = {"<cmd>RunFile<cr>", "Run file"},
-    t = {"<cmd>RunFile tab<cr>", "Run file tab"},
-    p = {"<cmd>RunProject<cr>", "Run project"},
-    c = {"<cmd>RunClose<cr>", "Run close"},
+    r = { "<cmd>RunCode<cr>", "Run code" },
+    f = { "<cmd>RunFile<cr>", "Run file" },
+    t = { "<cmd>RunFile tab<cr>", "Run file tab" },
+    p = { "<cmd>RunProject<cr>", "Run project" },
+    c = { "<cmd>RunClose<cr>", "Run close" },
   },
 
   s = {
@@ -219,6 +219,7 @@ local mappings = {
     o = { "<cmd>Telescope ctags_outline outline<cr>", "Outline" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
+    s = { "<cmd>Telescope symbols<cr>", "Symbols" },
   },
 
   S = {
