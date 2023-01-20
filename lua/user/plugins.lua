@@ -9,8 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
+    install_path, })
   print("Installing packer close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
 end
@@ -509,10 +508,27 @@ return packer.startup(function(use)
   })
 
   -- swap
-  use({"mizlan/iswap.nvim"})
+  use({ "mizlan/iswap.nvim" })
 
   -- SQL Uppercased
   use({ "jsborjesson/vim-uppercase-sql" })
+
+  -- hop
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+  --telescope symbols
+  use({ "nvim-telescope/telescope-symbols.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+    },
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
