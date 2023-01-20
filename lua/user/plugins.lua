@@ -205,9 +205,14 @@ return packer.startup(function(use)
   })
 
   -- Git
+
+  -- git mark
   use({
     "lewis6991/gitsigns.nvim",
   })
+
+  -- rich commit message
+  use({"rhysd/committia.vim"})
 
   -- surround
   -- use({ "tpope/vim-repeat" })
@@ -529,6 +534,7 @@ return packer.startup(function(use)
       "nvim-telescope/telescope.nvim",
     },
   })
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
