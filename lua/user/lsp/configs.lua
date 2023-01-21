@@ -6,10 +6,20 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
+  -- json
   "jsonls",
+
+  -- lua
   "sumneko_lua",
+
+  -- python
   "pyright",
+  -- "pylsp",
+
+  -- go
   "gopls",
+
+  -- markdown
   "marksman"
 }
 
