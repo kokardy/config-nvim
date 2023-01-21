@@ -105,7 +105,7 @@ local mappings = {
     v = { "<cmd>lua require('dapui').eval()<CR>", "view hovered variable" },
   },
 
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "File Tree" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
