@@ -212,7 +212,7 @@ return packer.startup(function(use)
   })
 
   -- rich commit message
-  use({"rhysd/committia.vim"})
+  use({ "rhysd/committia.vim" })
 
   -- surround
   -- use({ "tpope/vim-repeat" })
@@ -533,6 +533,15 @@ return packer.startup(function(use)
     requires = {
       "nvim-telescope/telescope.nvim",
     },
+  })
+
+  -- easy-align
+  -- vで選択して、markdownのテーブルを整形するため
+  use({ "junegunn/vim-easy-align",
+    config = function()
+      local _opt = { noremap = true, silent = false }
+      vim.keymap.set('v', '<leader><leader>\\', '<cmd>EasyAlign*<Bar><CR>', _opt)
+    end,
   })
 
 
