@@ -242,6 +242,7 @@ local mappings = {
     name = "+Yank",
     a = { 'ggVG"+y', "yank all" },
     r = { "<cmd>YankyRingHistory<cr>", "yanky ring history" },
+    h = { "<cmd>Telescope yank_history<cr>", "yanky history" },
   },
 }
 
