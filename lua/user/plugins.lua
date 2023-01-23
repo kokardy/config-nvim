@@ -9,7 +9,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
-    install_path, })
+    install_path,
+  })
   print("Installing packer close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
 end
@@ -301,12 +302,18 @@ return packer.startup(function(use)
         }
       })
     end,
-    requires = "nvim-treesitter/nvim-treesitter",
+    requires = {
+      { "nvim-telescope/telescope.nvim", opt = true, },
+    },
   })
 
   -- yank
   use({
     "gbprod/yanky.nvim",
+    -- requires = "nvim-treesitter/nvim-treesitter",
+    requires = {
+      { "nvim-telescope/telescope.nvim", opt = true, },
+    },
     config = function()
       require("yanky").setup({
         -- highlight = {
@@ -315,6 +322,8 @@ return packer.startup(function(use)
         --   timer = 500
         -- }
       })
+      require("telescope").load_extension("yank_history")
+      vim.keymap.set('n', '<leader>yr', '<cmd>Telescope yank_history<CR>')
     end,
   })
 
