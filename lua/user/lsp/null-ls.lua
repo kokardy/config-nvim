@@ -53,6 +53,7 @@ null_ls.setup({
         "manage.py",
         "pyrightconfig.json",
         "go.mod",
+        ".git",
       }
       return util.root_pattern(unpack(root_files))(fname) or util.root_pattern ".git" (fname) or util.path.dirname(fname)
     end,
