@@ -151,9 +151,11 @@ return packer.startup(function(use)
     requires = {
       { "hrsh7th/cmp-buffer", opt = true },
       { "hrsh7th/cmp-path", opt = true },
-      { "hrsh7th/cmp-nvim-lsp", opt = true },
+      { "hrsh7th/cmp-nvim-lsp", opt = false },
       { "hrsh7th/cmp-nvim-lua", opt = true },
-      { "uga-rosa/cmp-dictionary", opt = true, },
+      { "uga-rosa/cmp-dictionary", opt = true },
+      { "saadparwaiz1/cmp_luasnip", opt = false },
+      -- { "neovim/nvim-lspconfig" },
     },
     wants = {
       "cmp-buffer",
