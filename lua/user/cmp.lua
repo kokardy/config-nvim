@@ -160,6 +160,3 @@ require("cmp_dictionary").setup({
   capacity = 5,
   debug = false,
 })
-
-
-print("CMP###############")
