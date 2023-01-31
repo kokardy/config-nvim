@@ -45,16 +45,32 @@ return packer.startup(function(use)
   use({
     "wbthomason/packer.nvim",
   }) -- Have packer manage itself
+
   use({
     "nvim-lua/plenary.nvim",
   }) -- Useful lua functions used by lots of plugins
+
   use({
     "windwp/nvim-autopairs",
+    event = { "VimEnter" },
+    config = function()
+      require("user.autopairs")
+    end,
+    requires = {
+      { "hrsh7th/nvim-cmp", },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+    wants = {
+      "nvim-cmp",
+      "nvim-treesitter",
+    },
   }) -- Autopairs, integrates with both cmp and treesitter
+
   use({
     "numToStr/Comment.nvim",
+    event = { "VimEnter" },
     config = function()
-      require("Comment").setup()
+      require("user.comment")
     end
   })
   use({
@@ -65,92 +81,95 @@ return packer.startup(function(use)
   })
   use({
     "kyazdani42/nvim-tree.lua",
+    event = { "VimEnter" },
+    config = function()
+      require("user.nvim-tree")
+    end,
   })
   use({
     "akinsho/bufferline.nvim",
+    config = function()
+      require("user.bufferline")
+    end,
   })
   use({
     "moll/vim-bbye",
   })
   use({
     "nvim-lualine/lualine.nvim",
+    config = function()
+      require("user.lualine")
+    end
   })
   use({
     "akinsho/toggleterm.nvim",
+    event = { "VimEnter" },
+    config = function()
+      require("user.toggleterm")
+    end
   })
   use({
     "ahmedkhalf/project.nvim",
   })
   use({
     "lewis6991/impatient.nvim",
+    config = function()
+      require("user.impatient")
+    end
   })
   use({
     "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("user.indentline")
+    end,
   })
   use({
     "goolord/alpha-nvim",
+    config = function()
+      require("user.alpha")
+    end,
   })
-  use("folke/which-key.nvim")
+  use({
+    "folke/which-key.nvim",
+    event = { "VimEnter" },
+    config = function()
+      require("user.whichkey")
+    end,
+  })
 
   -- Colorschemes
-  use({ "folke/tokyonight.nvim" })
   use({ "lunarvim/darkplus.nvim" })
+  use({ "folke/tokyonight.nvim", opt = true })
 
   -- cmp plugins
   use({
     "hrsh7th/nvim-cmp",
-    -- event={"InsertEnter"},
-    -- setup = function()
-    --   require("user.cmp")
-    -- end,
-  }) -- The completion plugin
-  use({
-    "hrsh7th/cmp-buffer",
-  }) -- buffer completions
-  use({
-    "hrsh7th/cmp-path",
-  }) -- path completions
+    event = { "VimEnter" },
+    config = function()
+      require("user.cmp")
+    end,
+    requires = {
+      { "hrsh7th/cmp-buffer", opt = true },
+      { "hrsh7th/cmp-path", opt = true },
+      { "hrsh7th/cmp-nvim-lsp", opt = true },
+      { "hrsh7th/cmp-nvim-lua", opt = true },
+      { "uga-rosa/cmp-dictionary", opt = true, },
+    },
+    wants = {
+      "cmp-buffer",
+      "cmp-path",
+      "cmp-nvim-lsp",
+      "cmp-nvim-lua",
+      "cmp-dictionary",
+    }
+  })
+
   use({
     "saadparwaiz1/cmp_luasnip",
-  }) -- snippet completions
-  use({
-    "hrsh7th/cmp-nvim-lsp",
+    event = { "VimEnter" },
+    requires = { "hrsh7th/nvim-cmp" },
+    wants = { "nvim-cmp" },
   })
-  use({
-    "hrsh7th/cmp-nvim-lua",
-  })
-  use({
-    "uga-rosa/cmp-dictionary",
-    config = function()
-      require("cmp_dictionary").setup({
-        dic = {
-          ["*"] = { "/usr/share/dict/words" },
-          -- ["lua"] = "path/to/lua.dic",
-          -- ["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
-          -- filename = {
-          --   ["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
-          -- },
-          -- filepath = {
-          --   ["%.tmux.*%.conf"] = "path/to/tmux.dic"
-          -- },
-          -- spelllang = {
-          --   en = "path/to/english.dic",
-          -- },
-        },
-        -- The following are default values.
-        exact = 2,
-        first_case_insensitive = false,
-        document = false,
-        document_command = "wn %s -over",
-        async = false,
-        max_items = -1,
-        capacity = 5,
-        debug = false,
-      })
-
-    end
-  })
-
   -- snippets
   use({
     "L3MON4D3/LuaSnip",
@@ -166,6 +185,15 @@ return packer.startup(function(use)
   -- LSP
   use({
     "neovim/nvim-lspconfig",
+    config = function()
+      require("user.lsp")
+    end,
+    requires = {
+      { "hrsh7th/nvim-cmp", opt = true, },
+    },
+    wantas = {
+      "nvim-cmp",
+    },
   }) -- enable LSP
   use({
     "williamboman/nvim-lsp-installer",
@@ -177,11 +205,21 @@ return packer.startup(function(use)
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
+    event = { "VimEnter" },
+    config = function()
+      require("user.telescope")
+    end,
+    requires = {
+      "hrsh7th/nvim-cmp",
+    },
   })
 
   -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("user.treesitter")
+    end,
   })
   use({ -- 関数名を表示
     "romgrk/nvim-treesitter-context",
@@ -210,6 +248,10 @@ return packer.startup(function(use)
   -- git mark
   use({
     "lewis6991/gitsigns.nvim",
+    event = { "BufEnter" },
+    config = function()
+      require("user.gitsigns")
+    end,
   })
 
   -- rich commit message
@@ -246,8 +288,12 @@ return packer.startup(function(use)
 
   -- outline
   use({ "fcying/telescope-ctags-outline.nvim",
+    event = { "VimEnter" },
+    requires = { "nvim-telescope/telescope.nvim" },
+    wants = { "telescope.nvim" },
     config = function()
-      require('telescope').setup {
+      local telescope = require("telescope")
+      telescope.setup {
         extensions = {
           ctags_outline = {
             --ctags option
@@ -264,7 +310,7 @@ return packer.startup(function(use)
         },
       }
 
-      require('telescope').load_extension('ctags_outline')
+      telescope.load_extension('ctags_outline')
     end,
   })
 
@@ -308,11 +354,13 @@ return packer.startup(function(use)
   -- yank
   use({
     "gbprod/yanky.nvim",
+    event = { "VimEnter" },
     requires = {
       { "nvim-telescope/telescope.nvim", opt = true, },
     },
+    wantas = { "telescope.nvim" },
     config = function()
-      local utils = require("yanky.utils")
+      -- local utils = require("yanky.utils")
       local mapping = require("yanky.telescope.mapping")
       require("yanky").setup({
         picker = {
@@ -386,10 +434,16 @@ return packer.startup(function(use)
   -- github
   use({
     "pwntester/octo.nvim",
+    event = { "VimEnter" },
     requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "kyazdani42/nvim-web-devicons",
+      { "nvim-lua/plenary.nvim", opt = true, },
+      { "nvim-telescope/telescope.nvim", opt = true, },
+      { "kyazdani42/nvim-web-devicons", opt = true, },
+    },
+    wants = {
+      "plenary.nvim",
+      "telescope.nvim",
+      "nvim-web-devicons",
     },
     config = function()
       require("octo").setup()
@@ -400,10 +454,10 @@ return packer.startup(function(use)
   use({
     'rcarriga/nvim-dap-ui',
     requires = {
-      "mortepau/codicons.nvim",
-      "theHamsta/nvim-dap-virtual-text",
-      "mfussenegger/nvim-dap",
-      { 'mfussenegger/nvim-dap-python', tf = { "python" } },
+      { "mortepau/codicons.nvim", opt = true, },
+      { "theHamsta/nvim-dap-virtual-text", opt = true, },
+      { "mfussenegger/nvim-dap", opt = true, },
+      { 'mfussenegger/nvim-dap-python', opt = true, ft = { "python" } },
     },
     ft = {
       "python",
@@ -473,6 +527,7 @@ return packer.startup(function(use)
 
   -- matchup
   use({ "andymass/vim-matchup",
+    event = { "VimEnter" },
     setup = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
