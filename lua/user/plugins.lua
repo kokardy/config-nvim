@@ -81,7 +81,7 @@ return packer.startup(function(use)
   })
   use({
     "kyazdani42/nvim-tree.lua",
-    event = { "VimEnter" },
+    cmd = { "NvimTree*" },
     config = function()
       require("user.nvim-tree")
     end,
