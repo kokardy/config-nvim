@@ -52,7 +52,7 @@ return packer.startup(function(use)
 
   use({
     "windwp/nvim-autopairs",
-    event = { "VimEnter" },
+    event = { "BufEnter" },
     config = function()
       require("user.autopairs")
     end,
@@ -144,34 +144,26 @@ return packer.startup(function(use)
   -- cmp plugins
   use({
     "hrsh7th/nvim-cmp",
-    event = { "VimEnter" },
+    module = { "cmp" },
     config = function()
       require("user.cmp")
     end,
     requires = {
-      { "hrsh7th/cmp-buffer", opt = true },
-      { "hrsh7th/cmp-path", opt = true },
-      { "hrsh7th/cmp-nvim-lsp", opt = false },
-      { "hrsh7th/cmp-nvim-lua", opt = true },
-      { "uga-rosa/cmp-dictionary", opt = true },
-      { "saadparwaiz1/cmp_luasnip", opt = false },
-      -- { "neovim/nvim-lspconfig" },
+      { "hrsh7th/cmp-buffer", event = { "InsertEnter" }, },
+      { "hrsh7th/cmp-path", event = { "InsertEnter" }, },
+      { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, },
+      { "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" }, },
+      { "uga-rosa/cmp-dictionary", event = { "InsertEnter" }, },
+      { "saadparwaiz1/cmp_luasnip", event = { "InsertEnter" }, },
+      { "neovim/nvim-lspconfig", event = { "BufEnter" },
+        config = function()
+          require("user.lsp")
+        end,
+
+      },
     },
-    wants = {
-      "cmp-buffer",
-      "cmp-path",
-      "cmp-nvim-lsp",
-      "cmp-nvim-lua",
-      "cmp-dictionary",
-    }
   })
 
-  use({
-    "saadparwaiz1/cmp_luasnip",
-    event = { "VimEnter" },
-    requires = { "hrsh7th/nvim-cmp" },
-    wants = { "nvim-cmp" },
-  })
   -- snippets
   use({
     "L3MON4D3/LuaSnip",
@@ -185,23 +177,14 @@ return packer.startup(function(use)
   }) -- a bunch of snippets to use
 
   -- LSP
-  use({
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("user.lsp")
-    end,
-    requires = {
-      { "hrsh7th/nvim-cmp", opt = true, },
-    },
-    wantas = {
-      "nvim-cmp",
-    },
-  }) -- enable LSP
+  -- enable LSP
   use({
     "williamboman/nvim-lsp-installer",
+    event = { "BufEnter" },
   }) -- simple to use language server installer
   use({
     "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufEnter" },
   }) -- for formatters and linters
 
   -- Telescope
