@@ -110,6 +110,7 @@ return packer.startup(function(use)
   })
   use({
     "ahmedkhalf/project.nvim",
+    event = { "BufRead", "BufNewFile" },
   })
   use({
     "lewis6991/impatient.nvim",
@@ -455,12 +456,6 @@ return packer.startup(function(use)
   -- debug
   use({
     'rcarriga/nvim-dap-ui',
-    requires = {
-      { "mortepau/codicons.nvim", opt = true, },
-      { "theHamsta/nvim-dap-virtual-text", opt = true, },
-      { "mfussenegger/nvim-dap", opt = true, },
-      { 'mfussenegger/nvim-dap-python', opt = true, ft = { "python" } },
-    },
     ft = {
       "python",
       "go",
@@ -472,7 +467,17 @@ return packer.startup(function(use)
     },
     config = function()
       require("user.dap.init").setup()
-    end
+    end,
+    requires = {
+      { "mortepau/codicons.nvim", opt = true, },
+      { "theHamsta/nvim-dap-virtual-text", opt = true, },
+      { "mfussenegger/nvim-dap", module = { "dap" }, },
+      { 'mfussenegger/nvim-dap-python', opt = true, ft = { "python" } },
+    },
+    wants = {
+      "codicons.nvim",
+      "nvim-dap-virtual-text",
+    }
   })
 
   -- quickfix preview
@@ -537,12 +542,16 @@ return packer.startup(function(use)
 
   -- code runner
   use({ "CRAG666/code_runner.nvim",
+    event = { "BufEnter" },
     filetype = {
       java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
       python = "python3 -u",
       typescript = "deno run",
       rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
     },
+    config = function()
+      require("code_runner").setup()
+    end,
   })
 
   -- cursor move highlight
