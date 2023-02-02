@@ -153,7 +153,23 @@ return packer.startup(function(use)
       { "hrsh7th/cmp-path", event = { "InsertEnter" }, },
       { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, },
       { "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" }, },
-      { "uga-rosa/cmp-dictionary", event = { "InsertEnter" }, },
+      { "uga-rosa/cmp-dictionary", event = { "InsertEnter" },
+      config = function()
+        require("cmp_dictionary").setup({
+          dic = {
+            ["*"] = { "/usr/share/dict/words" },
+          },
+          exact = 2,
+          first_case_insensitive = false,
+          document = false,
+          document_command = "wn %s -over",
+          async = false,
+          max_items = -1,
+          capacity = 5,
+          debug = false,
+        })
+      end,
+      },
       { "saadparwaiz1/cmp_luasnip", event = { "InsertEnter" }, },
       { "neovim/nvim-lspconfig", event = { "BufEnter" },
         config = function()
