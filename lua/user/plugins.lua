@@ -1,15 +1,16 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
+local install_path1 = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path2 = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+if fn.empty(fn.glob(install_path1)) > 0 and fn.empty(fn.glob(install_path2)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
     "git",
     "clone",
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    install_path1,
   })
   print("Installing packer close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
@@ -191,7 +192,7 @@ return packer.startup(function(use)
   use({ "neovim/nvim-lspconfig",
     event = { "BufEnter" },
     config = function()
-      require("user.lsp") --
+      require("user.lsp")
     end,
     -- requires = { { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, } },
   })
@@ -214,6 +215,8 @@ return packer.startup(function(use)
     end,
     requires = {
       "hrsh7th/nvim-cmp",
+      "fcying/telescope-ctags-outline.nvim",
+      "nvim-telescope/telescope-symbols.nvim",
     },
   })
 
@@ -289,33 +292,6 @@ return packer.startup(function(use)
     end,
   })
 
-  -- outline
-  use({ "fcying/telescope-ctags-outline.nvim",
-    event = { "VimEnter" },
-    requires = { "nvim-telescope/telescope.nvim" },
-    wants = { "telescope.nvim" },
-    config = function()
-      local telescope = require("telescope")
-      telescope.setup {
-        extensions = {
-          ctags_outline = {
-            --ctags option
-            ctags = { 'ctags' },
-            --ctags filetype option
-            ft_opt = {
-              vim = '--vim-kinds=fk',
-              lua = '--lua-kinds=fk',
-              go = '--go-kinds=f',
-              rust = '--rust-kinds=fPM',
-              python = '--python-kinds=fm --language-force=Python',
-            },
-          },
-        },
-      }
-
-      telescope.load_extension('ctags_outline')
-    end,
-  })
 
   use({ "stevearc/aerial.nvim",
     config = function()
@@ -618,13 +594,6 @@ return packer.startup(function(use)
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-
-  --telescope symbols
-  use({ "nvim-telescope/telescope-symbols.nvim",
-    requires = {
-      "nvim-telescope/telescope.nvim",
-    },
-  })
 
   -- easy-align
   -- vで選択して、markdownのテーブルを整形するため
