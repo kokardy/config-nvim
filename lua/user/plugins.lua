@@ -392,9 +392,6 @@ return packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = { "markdown" },
-    config = function()
-      vim.g.mkdp_browser = "firefox"
-    end,
     requires = { { "tyru/open-browser.vim", opt = true, }, },
   })
   use({ "mattn/vim-maketable", ft = { "markdown" } })
