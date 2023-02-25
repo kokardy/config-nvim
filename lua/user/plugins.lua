@@ -601,6 +601,11 @@ return packer.startup(function(use)
     end,
   })
 
+  -- markdown code block loader
+  use({
+    "kokardy/md-codeblock-loader.nvim",
+  })
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
