@@ -1,0 +1,5 @@
+[submodule "lsp/lua-language-server"]
+  path = lsp/lua-language-server
+  url = https://github.com/LuaLS/lua-language-server
+  shallow = true
+  ignore = dirty
