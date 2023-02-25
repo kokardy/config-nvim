@@ -92,5 +92,20 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    ctags_outline = {
+      --ctags option
+      ctags = { 'ctags' },
+      --ctags filetype option
+      ft_opt = {
+        vim = '--vim-kinds=fk',
+        lua = '--lua-kinds=fk',
+        go = '--go-kinds=f',
+        rust = '--rust-kinds=fPM',
+        python = '--python-kinds=fm --language-force=Python',
+      },
+    },
   },
 }
+
+
+telescope.load_extension('ctags_outline')
