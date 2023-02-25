@@ -105,16 +105,17 @@ local mappings = {
     v = { "<cmd>lua require('dapui').eval()<CR>", "view hovered variable" },
   },
 
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "File Tree" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["h"] = { "<cmd>HopWord<CR>", "Hop Word" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["o"] = { "<cmd>AerialToggle!<CR>", "Toggle outline" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
@@ -189,6 +190,7 @@ local mappings = {
     c = { "<cmd>Neogen class<cr>", "Neogen class" },
   },
 
+
   r = {
     name = "Code Runner",
     -- vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
@@ -198,24 +200,26 @@ local mappings = {
     -- vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
-    r = {"<cmd>RunCode<cr>", "Run code"},
-    f = {"<cmd>RunFile<cr>", "Run file"},
-    t = {"<cmd>RunFile tab<cr>", "Run file tab"},
-    p = {"<cmd>RunProject<cr>", "Run project"},
-    c = {"<cmd>RunClose<cr>", "Run close"},
+    r = { "<cmd>RunCode<cr>", "Run code" },
+    f = { "<cmd>RunFile<cr>", "Run file" },
+    t = { "<cmd>RunFile tab<cr>", "Run file tab" },
+    p = { "<cmd>RunProject<cr>", "Run project" },
+    c = { "<cmd>RunClose<cr>", "Run close" },
   },
 
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    o = { "<cmd>Telescope ctags_outline outline<cr>", "Outline" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    s = { "<cmd>Telescope symbols<cr>", "Symbols" },
   },
 
   S = {
@@ -238,6 +242,7 @@ local mappings = {
     name = "+Yank",
     a = { 'ggVG"+y', "yank all" },
     r = { "<cmd>YankyRingHistory<cr>", "yanky ring history" },
+    h = { "<cmd>Telescope yank_history<cr>", "yanky history" },
   },
 }
 
