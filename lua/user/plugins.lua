@@ -401,6 +401,7 @@ return packer.startup(function(use)
     "weirongxu/plantuml-previewer.vim",
     ft = { "plantuml" },
     requires = { { "tyru/open-browser.vim", opt = true, }, },
+    wants = {"open-browser.vim"},
   })
   use({ "aklt/plantuml-syntax", ft = { "plantuml" } })
 
