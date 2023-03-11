@@ -53,11 +53,11 @@ null_ls.setup({
 
     -- diagnostics
     -- diagnostics.flake8
+    -- diagnostics.pyproject_flake8.with({ filetype = { "python" } }),
     diagnostics.mypy.with({
       filetype = { "python" },
       extra_args = { "--strict" },
     }),
-    diagnostics.pyproject_flake8.with({ filetype = { "python" } }),
     diagnostics.jsonlint.with({ filetype = { "json" } }),
 
     -- typo
