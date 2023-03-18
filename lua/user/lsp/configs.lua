@@ -21,7 +21,10 @@ local servers = {
   "gopls",
 
   -- markdown
-  "marksman"
+  "marksman",
+
+  -- toml
+  "taplo",
 }
 
 lsp_installer.setup({
