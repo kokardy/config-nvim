@@ -10,6 +10,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
   debug = false,
+  diagnostics_format = "#{m} (#{c})",
   sources = {
 
     -- python
