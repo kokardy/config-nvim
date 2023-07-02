@@ -25,6 +25,9 @@ local servers = {
 
   -- toml
   "taplo",
+
+  -- bash
+  "bashls",
 }
 
 lsp_installer.setup({
