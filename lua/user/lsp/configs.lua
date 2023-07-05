@@ -13,7 +13,6 @@ local servers = {
   -- "sumneko_lua",
   "lua_ls",
 
-
   -- python
   "pyright",
   -- "pylsp",
@@ -22,7 +21,13 @@ local servers = {
   "gopls",
 
   -- markdown
-  "marksman"
+  "marksman",
+
+  -- toml
+  "taplo",
+
+  -- bash
+  "bashls",
 }
 
 lsp_installer.setup({
