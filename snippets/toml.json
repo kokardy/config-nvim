@@ -1,0 +1,32 @@
+{
+  "defmain": {
+    "prefix": "mypyproject",
+    "body": [
+      "[tool.ruff]",
+      "line-length=120",
+      "select = [\"F\", \"E\"]",
+      "",
+      "[tool.black]",
+      "line-length=120",
+      "",
+      "[tool.flake8]",
+      "max-line-length=120",
+      "",
+      "[tool.mypy]",
+      "plugins = [\"sqlalchemy.ext.mypy.plugin\",]",
+      "python_version = \"3.10\"",
+      "",
+      "[[tool.mypy.overrides]]",
+      "module = \"tests.*\"",
+      "disallow_untyped_defs = false",
+      "ignore_missing_imports = true",
+      "",
+      "[tool.pytest]",
+      "path=[\"tests\"]",
+      "",
+      "[tool.pyright]",
+      "reportGeneralTypeIssues = false"
+    ],
+    "description": "main function"
+  }
+}
