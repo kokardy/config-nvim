@@ -28,6 +28,9 @@ local servers = {
 
   -- bash
   "bashls",
+
+  -- yaml
+  "yamlls",
 }
 
 lsp_installer.setup({
