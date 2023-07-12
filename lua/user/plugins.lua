@@ -151,11 +151,13 @@ return packer.startup(function(use)
       require("user.cmp")
     end,
     requires = {
-      { "hrsh7th/cmp-buffer", event = { "InsertEnter" }, },
-      { "hrsh7th/cmp-path", event = { "InsertEnter" }, },
+      { "hrsh7th/cmp-buffer",   event = { "InsertEnter" }, },
+      { "hrsh7th/cmp-path",     event = { "InsertEnter" }, },
       { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, },
       { "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" }, },
-      { "uga-rosa/cmp-dictionary", event = { "InsertEnter" },
+      {
+        "uga-rosa/cmp-dictionary",
+        event = { "InsertEnter" },
         config = function()
           require("cmp_dictionary").setup({
             dic = {
@@ -189,7 +191,8 @@ return packer.startup(function(use)
   }) -- a bunch of snippets to use
 
   -- LSP
-  use({ "neovim/nvim-lspconfig",
+  use({
+    "neovim/nvim-lspconfig",
     event = { "BufEnter" },
     config = function()
       require("user.lsp")
@@ -201,10 +204,17 @@ return packer.startup(function(use)
     "williamboman/nvim-lsp-installer",
     event = { "BufEnter" },
   }) -- simple to use language server installer
+
   use({
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufEnter" },
   }) -- for formatters and linters
+
+  -- efm-langserver
+  use({
+    "mattn/efm-langserver",
+    event = { "BufEnter" },
+  })
 
   -- Telescope
   use({
@@ -231,10 +241,10 @@ return packer.startup(function(use)
     "romgrk/nvim-treesitter-context",
     config = function()
       require("treesitter-context").setup({
-        enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        enable = true,   -- Enable this plugin (Can be enabled/disabled later via commands)
         throttle = true, -- Throttles plugin updates (may improve performance)
-        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+        max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = {     -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
           -- For all filetypes
           -- Note that setting an entry here replaces all other patterns for this entry.
           -- By setting the 'default' entry below, you can control which nodes you want to
@@ -266,7 +276,8 @@ return packer.startup(function(use)
   -- surround
   -- use({ "tpope/vim-repeat" })
   -- use({ "tpope/vim-surround" })
-  use({ "kylechui/nvim-surround",
+  use({
+    "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
@@ -293,7 +304,8 @@ return packer.startup(function(use)
   })
 
 
-  use({ "stevearc/aerial.nvim",
+  use({
+    "stevearc/aerial.nvim",
     config = function()
       require('aerial').setup({
         -- optionally use on_attach to set keymaps when aerial has attached to a buffer
@@ -311,7 +323,8 @@ return packer.startup(function(use)
 
 
   -- document
-  use({ "danymat/neogen",
+  use({
+    "danymat/neogen",
     config = function()
       require('neogen').setup({
         enabled = true,
@@ -401,7 +414,7 @@ return packer.startup(function(use)
     "weirongxu/plantuml-previewer.vim",
     ft = { "plantuml" },
     requires = { { "tyru/open-browser.vim", opt = true, }, },
-    wants = {"open-browser.vim"},
+    wants = { "open-browser.vim" },
   })
   use({ "aklt/plantuml-syntax", ft = { "plantuml" } })
 
@@ -413,9 +426,9 @@ return packer.startup(function(use)
     "pwntester/octo.nvim",
     event = { "VimEnter" },
     requires = {
-      { "nvim-lua/plenary.nvim", opt = true, },
+      { "nvim-lua/plenary.nvim",         opt = true, },
       { "nvim-telescope/telescope.nvim", opt = true, },
-      { "kyazdani42/nvim-web-devicons", opt = true, },
+      { "kyazdani42/nvim-web-devicons",  opt = true, },
     },
     wants = {
       "plenary.nvim",
@@ -443,10 +456,10 @@ return packer.startup(function(use)
       require("user.dap.init").setup()
     end,
     requires = {
-      { "mortepau/codicons.nvim", opt = true, },
+      { "mortepau/codicons.nvim",          opt = true, },
       { "theHamsta/nvim-dap-virtual-text", opt = true, },
-      { "mfussenegger/nvim-dap", module = { "dap" }, },
-      { 'mfussenegger/nvim-dap-python', opt = true, ft = { "python" } },
+      { "mfussenegger/nvim-dap",           module = { "dap" }, },
+      { 'mfussenegger/nvim-dap-python',    opt = true,         ft = { "python" } },
     },
     wants = {
       "codicons.nvim",
@@ -458,16 +471,19 @@ return packer.startup(function(use)
   use({ "kevinhwang91/nvim-bqf" })
 
   -- mark
-  use({ "chentoast/marks.nvim",
+  use({
+    "chentoast/marks.nvim",
     config = function()
       require("user.marks").config()
-    end })
+    end
+  })
 
   -- rainbow parentheses
   use({ "p00f/nvim-ts-rainbow" })
 
   -- sidebar
-  use({ "sidebar-nvim/sidebar.nvim",
+  use({
+    "sidebar-nvim/sidebar.nvim",
     config = function()
       local sidebar = require("sidebar-nvim")
       local opts = {
@@ -486,7 +502,8 @@ return packer.startup(function(use)
   use({ "kwkarlwang/bufresize.nvim" })
 
   -- asterisk
-  use({ "rapan931/lasterisk.nvim",
+  use({
+    "rapan931/lasterisk.nvim",
     config = function()
       vim.keymap.set('n', '*', function() require("lasterisk").search() end)
       vim.keymap.set('n', 'g*', function() require("lasterisk").search({ is_whole = false }) end)
@@ -507,7 +524,8 @@ return packer.startup(function(use)
   --   end })
 
   -- matchup
-  use({ "andymass/vim-matchup",
+  use({
+    "andymass/vim-matchup",
     event = { "VimEnter" },
     setup = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
@@ -515,7 +533,8 @@ return packer.startup(function(use)
   })
 
   -- code runner
-  use({ "CRAG666/code_runner.nvim",
+  use({
+    "CRAG666/code_runner.nvim",
     event = { "BufEnter" },
     filetype = {
       java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -552,25 +571,27 @@ return packer.startup(function(use)
   --     }
   --   end })
 
-  use({ "stonelasley/flare.nvim",
+  use({
+    "stonelasley/flare.nvim",
     config = function()
       require('flare').setup {
-        enabled = true, -- disable highlighting
+        enabled = true,         -- disable highlighting
         hl_group = "IncSearch", -- set highlight group used for highlight
-        x_threshold = 5, -- column changes greater than this number trigger highlight
-        y_threshold = 3, -- row changes greater than this number trigger highlight
-        expanse = 4, -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
-        file_ignore = { -- suppress highlighting for files of this type
+        x_threshold = 5,        -- column changes greater than this number trigger highlight
+        y_threshold = 3,        -- row changes greater than this number trigger highlight
+        expanse = 4,            -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
+        file_ignore = {         -- suppress highlighting for files of this type
           "NvimTree",
           "fugitive",
           "TelescopePrompt",
           "TelescopeResult",
         },
-        fade = true, -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
+        fade = true,       -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
         underline = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
-        timeout = 100, -- timeout delay
+        timeout = 100,     -- timeout delay
       }
-    end })
+    end
+  })
 
   -- typo
   use({ 'poljar/typos.nvim',
@@ -595,7 +616,8 @@ return packer.startup(function(use)
 
   -- easy-align
   -- vで選択して、markdownのテーブルを整形するため
-  use({ "junegunn/vim-easy-align",
+  use({
+    "junegunn/vim-easy-align",
     config = function()
       local _opt = { noremap = true, silent = false }
       vim.keymap.set('v', '<leader><leader>\\', '<cmd>EasyAlign*<Bar><CR>', _opt)
