@@ -147,7 +147,7 @@ return {
 		{
 			"neovim/nvim-lspconfig",
 			event = { "BufEnter" },
-			config = function(plugin)
+			config = function()
 				require("user.lsp")
 			end,
 			-- dependencies = { { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, } },
