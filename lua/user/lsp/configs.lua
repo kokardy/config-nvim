@@ -5,6 +5,8 @@ end
 
 local lspconfig = require("lspconfig")
 
+local M = {}
+
 local servers = {
 	-- json
 	"jsonls",
@@ -33,7 +35,8 @@ local servers = {
 	"yamlls",
 }
 
-local M = {}
+
+M.servers = servers
 
 M.setup = function()
 	lsp_installer.setup({
