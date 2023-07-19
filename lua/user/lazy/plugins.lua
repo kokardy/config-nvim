@@ -146,7 +146,7 @@ return {
 		-- LSP
 		{
 			"neovim/nvim-lspconfig",
-			event = { "BufEnter" },
+			-- event = { "BufEnter" },
 			config = function()
 				require("user.lsp")
 			end,

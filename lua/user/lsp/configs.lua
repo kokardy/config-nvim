@@ -12,7 +12,7 @@ local servers = {
 	"jsonls",
 
 	-- lua
-	-- "sumneko_lua",
+	"sumneko_lua",
 	"lua_ls",
 
 	-- python

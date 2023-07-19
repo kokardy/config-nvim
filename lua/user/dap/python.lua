@@ -4,7 +4,6 @@ if venv == nil then
   command = 'python'
 end
 
-print("DAP PYTHON command", command)
 require("dap-python").setup(command)
 
 -- keymap
