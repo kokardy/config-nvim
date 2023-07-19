@@ -6,7 +6,6 @@ vim.api.nvim_create_augroup("TransparentBG", {})
 vim.api.nvim_create_autocmd("ColorScheme", {
 	group = "TransparentBG",
 	callback = function()
-		print("colorscheme change")
 		vim.api.nvim_set_hl(0, "Normal", { cterm = nil })
 		vim.api.nvim_set_hl(0, "NonText", { cterm = nil })
 		vim.api.nvim_set_hl(0, "LineNr", { cterm = nil })
