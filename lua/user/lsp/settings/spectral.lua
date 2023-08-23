@@ -1,4 +1,4 @@
 return {
-	cmd = { "spectral-language-server", "--stdio" },
-	filetypes = { "yaml.openapi", "json.openapi" },
+	cmd = { "spectral-language-server", "-F hint", "--stdio" },
+	filetypes = { "yaml", "yaml.openapi", "json.openapi" },
 }
