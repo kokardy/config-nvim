@@ -17,6 +17,6 @@ vim.api.nvim_create_augroup("myFileType", {})
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = "myFileType",
 	callback = function()
-    set_filetype_based_on_first_line()
+    -- set_filetype_based_on_first_line()
 	end,
 })
