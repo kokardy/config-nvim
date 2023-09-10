@@ -5,7 +5,7 @@ cd ~/.config/nvim
 
 # dependencies
 sudo apt-get install luarocks xsel
-sudo npm install --global yarn tree-sitter prettier pyright neovim
+sudo bun install --global yarn tree-sitter prettier pyright neovim spectral-language-server
 cargo install tree-sitter-cli remark stylua ripgrep fd-find typos-cli
 pip install pynvim black isort ruff
 
