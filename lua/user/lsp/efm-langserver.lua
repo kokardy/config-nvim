@@ -25,7 +25,7 @@ M.setup = function()
 				-- python
 				python = {
 					{ formatCommand = "isort -", formatStdin = true },
-					{ formatCommand = "black -" },
+					{ formatCommand = "black -", formatStdin = true },
 					{ lintCommand = "ruff -" },
 					{ lintCommand = "mypy --strict --show-column-numbers" },
 				},
