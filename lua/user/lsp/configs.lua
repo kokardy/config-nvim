@@ -36,6 +36,12 @@ local servers = {
 
 	-- spectral
 	"spectral",
+
+  -- svelte
+  "svelte",
+
+  -- typescript
+  "tsserver",
 }
 
 M.servers = servers
