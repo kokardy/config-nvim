@@ -17,6 +17,7 @@ vim.cmd [[
     autocmd!
     autocmd FileType markdown setlocal wrap
     autocmd FileType markdown setlocal spell
+    autocmd FileType markdown setlocal shiftwidth=2
     autocmd FileType markdown vmap <Leader>t :EasyAlign*<Bar><Enter>
   augroup end
 
