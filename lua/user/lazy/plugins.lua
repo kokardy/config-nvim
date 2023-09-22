@@ -163,12 +163,6 @@ return {
 		event = { "BufEnter" },
 	}, -- for formatters and linters
 
-	-- efm-langserver
-	{
-		"mattn/efm-langserver",
-		event = { "BufEnter" },
-	},
-
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",

@@ -1,0 +1,10 @@
+extends: ["spectral:oas", "spectral:asyncapi"]
+rules:
+  title-length:
+    description: title rule
+    message: "{{property}} should be start 'title'"
+    given: "$.info.title"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^title"

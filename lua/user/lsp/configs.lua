@@ -8,6 +8,9 @@ local lspconfig = require("lspconfig")
 local M = {}
 
 local servers = {
+	-- efm
+	"efm",
+
 	-- json
 	"jsonls",
 
@@ -37,11 +40,11 @@ local servers = {
 	-- spectral
 	"spectral",
 
-  -- svelte
-  "svelte",
+	-- svelte
+	"svelte",
 
-  -- typescript
-  "tsserver",
+	-- typescript
+	"tsserver",
 }
 
 M.servers = servers
