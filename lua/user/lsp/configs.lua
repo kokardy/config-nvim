@@ -37,8 +37,8 @@ local servers = {
 	-- yaml
 	"yamlls",
 
-	-- spectral
-	"spectral",
+	-- spectral efmに移行
+	-- "spectral",
 
 	-- svelte
 	"svelte",
