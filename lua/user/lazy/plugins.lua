@@ -74,6 +74,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		config = function()
 			require("user.indentline")
 		end,
