@@ -48,7 +48,7 @@ return {
 
       -- spectral
       openapi = {
-        { lintCommand = "spectral lint -f text -F hint", lintStdin = false,  },
+        { lintCommand = "spectral lint -f text -F hint", lintStdin = false },
         -- リダイレクトでテストできる
         -- { lintCommand = "echo OK >> /tmp/yaml.log",                                       lintStdin = false },
       },
