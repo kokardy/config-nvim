@@ -2,6 +2,7 @@ return {
   init_options = { documentFormatting = true },
   settings = {
     rootMarkers = {
+      ".spectral.yaml",
       "pyproject.toml",
       "package.json",
       "setup.py",
