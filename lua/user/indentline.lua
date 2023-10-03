@@ -30,7 +30,7 @@ end
 vim.wo.colorcolumn = "99999"
 
 indent_blankline.setup({
-	show_current_context = true,
+	-- show_current_context = true,
 	scope = {
 		enabled = true,
 	},
