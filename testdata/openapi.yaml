@@ -1,6 +1,6 @@
 openapi:  3.1.0
 info :
-  title: Webhook Example
+  title: Webhook Example infomation kokardy
   version: 1.0.0
 # Since OAS 3.1.0 the paths element isn't necessary. Now a valid OpenAPI Document can describe only paths, webhooks, or even only reusable components
 webhooks:
@@ -9,7 +9,7 @@ webhooks:
     # This is a Path Item Object, the only difference is that the request is initiated by the API provider
     post:
       requestBody:
-        description: Information about a new pet in the system
+        description: Information about a new pet in the system. jjks
         content:
           application/json:
             schema:

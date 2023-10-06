@@ -48,13 +48,18 @@ return {
 
 			-- spectral
 			openapi = {
+				-- リダイレクトでテストできる
+				-- { lintCommand = "echo OK >> /tmp/yaml.log", lintStdin = false },
 				{
 					lintCommand = "spectral lint -f text -F hint",
 					lintStdin = false,
 					rootMarkers = { ".spectral.yaml" },
 				},
-				-- リダイレクトでテストできる
-				-- { lintCommand = "echo OK >> /tmp/yaml.log",                                       lintStdin = false },
+				{
+					lintCommand = "cspell lint",
+					lintStdin = false,
+					rootMarkers = { "cspell.yaml" },
+				},
 			},
 		},
 	},
