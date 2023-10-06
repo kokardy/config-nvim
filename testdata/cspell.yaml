@@ -4,3 +4,6 @@ language: en
 words:
   - kokardy
   - rosso
+ignoreRegExpList:
+  - >-
+    /id:.*/g
