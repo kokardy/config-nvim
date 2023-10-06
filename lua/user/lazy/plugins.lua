@@ -383,7 +383,11 @@ return {
 			"nvim-web-devicons",
 		},
 		config = function()
-			require("octo").setup()
+			require("octo").setup({
+				ssh_aliases = {
+					["github"] = "github.com",
+				}, -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
+			})
 		end,
 	},
 
@@ -543,12 +547,6 @@ return {
 				timeout = 100, -- timeout delay
 			})
 		end,
-	},
-
-	-- typo
-	{
-		"poljar/typos.nvim",
-		-- config = function() end,
 	},
 
 	-- swap
