@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   group = "myFileType",
   pattern = { "*.nue" },
   callback = function(ev)
-    print(string.format("event fired: %s", vim.inspect(ev)))
+    -- print(string.format("event fired: %s", vim.inspect(ev)))
     vim.bo.filetype = "html.nue"
   end,
 })
