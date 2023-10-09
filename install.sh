@@ -7,7 +7,7 @@ cd ~/.config/nvim
 sudo apt-get install luarocks xsel
 sudo bun install --global yarn tree-sitter prettier pyright neovim spectral-language-server
 cargo install tree-sitter-cli remark stylua ripgrep fd-find typos-cli
-pip install pynvim black isort ruff
+pip install pynvim black isort ruff mypy
 
 # font install
 HAKUGEN_VER="v2.8.0"
