@@ -46,6 +46,15 @@ return {
 				{ formatCommand = "remark", formatStdin = true },
 			},
 
+			-- yaml
+			yaml = {
+				{
+					lintCommand = "cspell lint",
+					lintStdin = false,
+					rootMarkers = { "cspell.yaml" },
+				},
+			},
+
 			-- spectral
 			openapi = {
 				-- リダイレクトでテストできる
