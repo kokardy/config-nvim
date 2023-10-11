@@ -1,5 +1,6 @@
+from typing import List
 def main() -> None:
-    print("OK" )
+    print("OK")
     a = ""
     a = 3
 
