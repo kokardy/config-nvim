@@ -1,6 +1,6 @@
 [tool.ruff]
 line-length=120
-select = ["F", "E"]
+select = ["F", "E", "W", "D"]
 
 [tool.black]
 line-length=120
