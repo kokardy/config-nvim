@@ -1,4 +1,6 @@
 extends: ["spectral:oas", "spectral:asyncapi"]
+functions:
+  - code-length
 rules:
   title-length:
     description: title rule
@@ -8,3 +10,10 @@ rules:
       function: pattern
       functionOptions:
         match: "^title"
+  code-length:
+    message: "{{error}}"
+    given: "$..schemas..[?(@.code)]"
+    then:
+      function: "code-length"
+      functionOptions:
+        value: "aaa"
