@@ -56,7 +56,7 @@ components:
           type: string
         code:
           type: string
-          pattern: "[0-9]{5}"
+          pattern: "^[0-9]{5}$"
         tag:
           type: string
     Pet3:
@@ -65,3 +65,9 @@ components:
       properties:
         code:
           type: string
+    Pet4:
+      required:
+        - code
+      properties:
+        code:
+          type: int

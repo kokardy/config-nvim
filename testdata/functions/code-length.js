@@ -1,35 +1,45 @@
-import { createRulesetFunction } from "@stoplight/spectral-core";
+import { createRulesetFunction } from '@stoplight/spectral-core';
 
 export default createRulesetFunction(
   {
     input: null,
-    options: {
-      type: "object",
-      additionalProperties: false,
-      properties: {
-        value: true
-      },
-      required: ["value"],
-    },
+    options: null
   },
-  (targetVal, options, context) => {
-    const {value} = options;
-    const code = targetVal.code
 
+  (code, _, context) => {
 
-    if ("minLength" in code && "maxLength" in code){
-      console.log("minLength, maxLength exists")
-      return
+    console.log(code);
+    if ("type" in code && code.type !== "string"){
+      return [
+        {
+          message: `code must be string`
+        },
+      ];
+
     }
 
-    if ("pattern" in code){
-      console.log("pattern exists")
-      return
+    if ('minLength' in code && 'maxLength' in code) {
+      return;
+    }
+
+    if ('pattern' in code) {
+      const pattern = code.pattern;
+      const matcher = /^\^\[0-9\]\{[0-9]*\}\$/
+      if (pattern.match(matcher)) {
+        return;
+      }
+    return [
+      {
+        message: `${context.path.join(
+          '.',
+        )}:code pattern must be '^[0-9]{\d}$'`,
+      },
+    ];
     }
 
     return [
       {
-        message: `${context.path.join(".")}:code must have (minLength, maxLength) or pattern`,
+        message: `code must have (minLength, maxLength) or pattern`,
       },
     ];
   },
