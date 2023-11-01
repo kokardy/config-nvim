@@ -12,8 +12,6 @@ rules:
         match: "^title"
   code-length:
     message: "{{error}}"
-    given: "$..schemas..[?(@.code)]"
+    given: "$..properties.code"
     then:
       function: "code-length"
-      functionOptions:
-        value: "aaa"
