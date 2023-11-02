@@ -578,6 +578,12 @@ return {
 	-- svelte
 	{ "burner/vim-svelte" },
 
+	-- dbml
+	{
+		"jidn/vim-dbml",
+		ft = { "dbml" },
+	},
+
 	-- markdown code block loader
 	{
 		"kokardy/md-codeblock-loader.nvim",
