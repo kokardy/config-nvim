@@ -25,7 +25,8 @@
       "path=[\"tests\"]",
       "",
       "[tool.pyright]",
-      "reportGeneralTypeIssues = false"
+      "reportGeneralTypeIssues = false",
+      "extraPaths = [\"src\", \".venv/lib/python3.12/site-packages\"]"
     ],
     "description": "main function"
   }
