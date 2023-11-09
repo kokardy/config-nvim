@@ -584,6 +584,11 @@ return {
 		ft = { "dbml" },
 	},
 
+	-- trailing whitespace
+	{
+		"ntpeters/vim-better-whitespace",
+	},
+
 	-- markdown code block loader
 	{
 		"kokardy/md-codeblock-loader.nvim",
