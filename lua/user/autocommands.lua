@@ -1,8 +1,8 @@
 vim.cmd [[
   augroup _general_settings
     autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
+    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
+    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
@@ -16,14 +16,13 @@ vim.cmd [[
   augroup _markdown
     autocmd!
     autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
     autocmd FileType markdown setlocal shiftwidth=2
     autocmd FileType markdown vmap <Leader>t :EasyAlign*<Bar><Enter>
   augroup end
 
   augroup _auto_resize
     autocmd!
-    autocmd VimResized * tabdo wincmd = 
+    autocmd VimResized * tabdo wincmd =
   augroup end
 
   augroup _alpha
