@@ -44,6 +44,11 @@ return {
 			-- markdown
 			markdown = {
 				{ formatCommand = "remark", formatStdin = true },
+				{
+					lintCommand = "cspell lint",
+					lintStdin = false,
+					rootMarkers = { "cspell.yaml" },
+				},
 			},
 
 			-- yaml
