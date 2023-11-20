@@ -9,7 +9,7 @@ sudo bun install --global yarn tree-sitter prettier pyright neovim spectral-lang
 cargo install tree-sitter-cli remark stylua ripgrep fd-find typos-cli
 pip install pynvim black isort ruff mypy
 go install golang.org/x/tools/gopls@latest
-go install github.com/mattn/efm-langserver@latest
+# go install github.com/mattn/efm-langserver@latest # use LspInstall efm
 
 # font install
 HAKUGEN_VER="v2.8.0"
