@@ -19,6 +19,7 @@ return {
 			lua = {
 				{ formatCommand = "stylua -", formatStdin = true },
 			},
+
 			-- python
 			python = {
 				{ formatCommand = "isort -", formatStdin = true },
@@ -26,6 +27,7 @@ return {
 				{ lintCommand = "ruff -" },
 				{ lintCommand = "mypy --strict --show-column-numbers" },
 			},
+
 			-- json
 			-- json = {
 			-- 	{ formatCommand = "prettier"},

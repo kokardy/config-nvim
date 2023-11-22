@@ -19,7 +19,7 @@ configs.setup({
 		"markdown",
 		"yaml",
 		"json",
-    "go",
+		"go",
 	},
 	sync_install = false,
 	auto_install = false,
