@@ -18,4 +18,3 @@ local plugins = require("user.lazy.plugins")
 lazy.setup({
 	spec = plugins,
 })
-

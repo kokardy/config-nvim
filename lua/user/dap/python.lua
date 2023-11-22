@@ -1,7 +1,7 @@
-local venv = os.getenv('VIRTUAL_ENV')
-local command = string.format('%s/bin/python', venv)
+local venv = os.getenv("VIRTUAL_ENV")
+local command = string.format("%s/bin/python", venv)
 if venv == nil then
-  command = 'python'
+	command = "python"
 end
 
 require("dap-python").setup(command)
