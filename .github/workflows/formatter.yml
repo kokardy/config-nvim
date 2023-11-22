@@ -44,8 +44,10 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo build --release --all-features
-      - run: cargo install stylua
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: stylua
       - run: stylua --check ./lua/*
       
           
