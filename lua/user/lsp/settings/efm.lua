@@ -1,16 +1,24 @@
+local rootMakers = {
+	python = {
+		"pyproject.toml",
+		"setup.py",
+		"setup.cfg",
+		"pyrightconfig.json",
+		"requirements.txt",
+		-- "manage.py",
+	},
+	go = {
+		"go.mod",
+	},
+	javascript = {
+		"package.json",
+	},
+}
 return {
 	init_options = { documentFormatting = true },
 	settings = {
 		rootMarkers = {
-			"pyproject.toml",
-			"package.json",
-			"setup.py",
-			"setup.cfg",
-			"requirements.txt",
-			"Pipfile",
-			"manage.py",
-			"pyrightconfig.json",
-			"go.mod",
+			-- "Pipfile",
 			".git",
 		},
 
@@ -22,10 +30,18 @@ return {
 
 			-- python
 			python = {
-				{ formatCommand = "isort -", formatStdin = true },
-				{ formatCommand = "black -", formatStdin = true },
-				{ lintCommand = "ruff -" },
-				{ lintCommand = "mypy --strict --show-column-numbers" },
+				{
+					formatCommand = "isort -",
+					formatStdin = true,
+					rootMakers = rootMakers.python,
+				},
+				{
+					formatCommand = "black -",
+					formatStdin = true,
+					rootMakers = rootMakers.python,
+				},
+				{ lintCommand = "ruff -", rootMakers = rootMakers.python },
+				{ lintCommand = "mypy --strict --show-column-numbers", rootMakers = rootMakers.python },
 			},
 
 			-- json
@@ -35,19 +51,22 @@ return {
 
 			-- javascript
 			javascript = {
-				{ formatCommand = "prettier --single-quote" },
+				{ formatCommand = "prettier --single-quote", rootMakers = rootMakers.javascript },
 			},
 
 			-- jsx
 			javascriptreact = {
-				{ formatCommand = "prettier --no-semi --single-quote --jsx-single-quote" },
+				{
+					formatCommand = "prettier --no-semi --single-quote --jsx-single-quote",
+					rootMakers = rootMakers.javascript,
+				},
 			},
 
 			-- markdown
 			markdown = {
 				{ formatCommand = "remark", formatStdin = true },
 				{
-					lintCommand = "cspell lint",
+					lintCommand = "cspell lint --no-progress --no-summary --no-color",
 					lintStdin = false,
 					rootMarkers = { "cspell.yaml" },
 				},
@@ -72,7 +91,7 @@ return {
 					rootMarkers = { ".spectral.yaml" },
 				},
 				{
-					lintCommand = "cspell lint",
+					lintCommand = "cspell lint --no-progress --no-summary --no-color ",
 					lintStdin = false,
 					rootMarkers = { "cspell.yaml" },
 				},
