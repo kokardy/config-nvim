@@ -3,6 +3,8 @@ local function set_filetype_based_on_first_line()
 
   if first_line:match("^openapi *:") then
     vim.bo.filetype = "openapi"
+  elseif first_line:match('bash$') then
+    vim.bo.filetype = 'bash'
     -- elseif first_line:match('^%%PDF') then
     --     vim.bo.filetype = 'pdf'
     -- else
