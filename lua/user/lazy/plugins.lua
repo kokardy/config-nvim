@@ -589,6 +589,15 @@ return {
 		"ntpeters/vim-better-whitespace",
 	},
 
+	-- github copilot
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_no_tab_map = true
+			vim.api.nvim_set_keymap("i", "<C-i>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+		end,
+	},
+
 	-- markdown code block loader
 	{
 		"kokardy/md-codeblock-loader.nvim",
