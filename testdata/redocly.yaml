@@ -1,0 +1,22 @@
+extends:
+  - recommended
+
+apis:
+  core@v2:
+    root: ./openapi.yaml
+    rules:
+      rule/code-format:
+        where:
+          - subject:
+              type: Schema
+              property: type
+              filterInParentKeys: [code]
+            assertions:
+              const: string
+        subject:
+          type: Schema
+        assertions:
+          required:
+            - minLength
+            - maxLength
+
