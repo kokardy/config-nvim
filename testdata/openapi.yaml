@@ -70,4 +70,4 @@ components:
         - code
       properties:
         code:
-          type: int
+          type: integer
