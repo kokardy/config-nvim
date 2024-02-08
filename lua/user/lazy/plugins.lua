@@ -117,13 +117,12 @@ return {
 						dic = {
 							["*"] = { "/usr/share/dict/words" },
 						},
-						exact = 2,
+						exact_length = 2,
 						first_case_insensitive = false,
 						document = false,
 						document_command = "wn %s -over",
 						async = false,
-						max_items = -1,
-						capacity = 5,
+						max_number_items = -1,
 						debug = false,
 					})
 				end,
