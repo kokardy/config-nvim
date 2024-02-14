@@ -114,13 +114,15 @@ return {
 				event = { "InsertEnter" },
 				config = function()
 					require("cmp_dictionary").setup({
-						dic = {
-							["*"] = { "/usr/share/dict/words" },
+						paths = {
+							"/usr/share/dict/words",
 						},
 						exact_length = 2,
 						first_case_insensitive = false,
-						document = false,
-						document_command = "wn %s -over",
+						document = {
+							enable = false,
+							command = { "wn", "%s", "-over" },
+						},
 						async = false,
 						max_number_items = -1,
 						debug = false,
