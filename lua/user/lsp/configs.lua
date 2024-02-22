@@ -45,6 +45,9 @@ local servers = {
 
 	-- typescript
 	"tsserver",
+
+  -- sql
+  "sqlls",
 }
 
 M.servers = servers
