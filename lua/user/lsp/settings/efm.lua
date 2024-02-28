@@ -40,8 +40,19 @@ return {
 					formatStdin = true,
 					rootMakers = rootMakers.python,
 				},
+				{
+					formatCommand = "ruff --stdin-filename ${INPUT} --fix --exit-zero --quiet -",
+					formatStdin = true,
+					rootMakers = rootMakers.python,
+				},
+
 				{ lintCommand = "ruff -", rootMakers = rootMakers.python },
-				{ lintCommand = "mypy --strict --show-column-numbers", rootMakers = rootMakers.python },
+				{
+					lintCommand = "rye run mypy --strict --show-column-numbers",
+					rootMakers = rootMakers.python,
+					lintIgnoreExitCode = true,
+				},
+				-- { lintCommand = "rye run mypy --strict --show-column-numbers", rootMakers = rootMakers.python },
 			},
 
 			-- json
