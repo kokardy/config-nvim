@@ -124,7 +124,7 @@ return {
 							command = { "wn", "%s", "-over" },
 						},
 						async = false,
-						max_number_items = -1,
+						max_number_items = 5,
 						debug = false,
 					})
 				end,
@@ -160,10 +160,10 @@ return {
 		event = { "BufEnter" },
 	}, -- simple to use language server installer
 
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufEnter" },
-	}, -- for formatters and linters
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	event = { "BufEnter" },
+	-- }, -- for formatters and linters
 
 	-- Telescope
 	{
