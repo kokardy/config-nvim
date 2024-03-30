@@ -27,7 +27,7 @@ local servers = {
 
 	-- markdown
 	"marksman",
-	"remark_ls",
+	-- "remark_ls",
 
 	-- toml
 	"taplo",
