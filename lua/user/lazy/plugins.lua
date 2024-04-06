@@ -412,6 +412,7 @@ return {
 			{ "theHamsta/nvim-dap-virtual-text", opt = true },
 			{ "mfussenegger/nvim-dap", module = { "dap" } },
 			{ "mfussenegger/nvim-dap-python", opt = true, ft = { "python" } },
+			{ "nvim-neotest/nvim-nio", opt = true, ft = { "python" } },
 		},
 		wants = {
 			"codicons.nvim",
