@@ -160,11 +160,6 @@ return {
 		event = { "BufEnter" },
 	}, -- simple to use language server installer
 
-	-- {
-	-- 	"jose-elias-alvarez/null-ls.nvim",
-	-- 	event = { "BufEnter" },
-	-- }, -- for formatters and linters
-
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -223,9 +218,7 @@ return {
 	-- rich commit message
 	{ "rhysd/committia.vim" },
 
-	-- surround
-	-- { "tpope/vim-repeat" })
-	-- { "tpope/vim-surround" })
+  -- surround
 	{
 		"kylechui/nvim-surround",
 		config = function()
@@ -432,7 +425,7 @@ return {
 	},
 
 	-- rainbow parentheses
-	{ "p00f/nvim-ts-rainbow" },
+  { "HiPhish/rainbow-delimiters.nvim" },
 
 	-- sidebar
 	{
@@ -472,15 +465,6 @@ return {
 		end,
 	},
 
-	-- edge motion
-	-- { "haya14busa/vim-edgemotion",
-	--   config = function()
-	--     local keymap = vim.api.nvim_set_keymap
-	--     local opts = { noremap = true, silent = true }
-	--     keymap("n", "<A-j>", "<Plug>(edgemotion-j)<cr>", opts)
-	--     keymap("n", "<A-k>", "<Plug>(edgemotion-k)<cr>", opts)
-	--   end })
-
 	-- matchup
 	{
 		"andymass/vim-matchup",
@@ -506,28 +490,6 @@ return {
 	},
 
 	-- cursor move highlight
-
-	-- { 'edluffy/specs.nvim',
-	--   config = function()
-	--     require('specs').setup {
-	--       show_jumps       = true,
-	--       min_jump         = 5,
-	--       popup            = {
-	--         delay_ms = 0, -- delay before popup displays
-	--         inc_ms = 10, -- time increments used for fade/resize effects
-	--         blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
-	--         width = 10,
-	--         winhl = "PMenu",
-	--         -- fader = require('specs').linear_fader,
-	--         fader = require('specs').sinus_fader,
-	--         resizer = require('specs').shrink_resizer
-	--       },
-	--       ignore_filetypes = {},
-	--       ignore_buftypes  = {
-	--         nofile = true,
-	--       },
-	--     }
-	--   end }
 
 	{
 		"stonelasley/flare.nvim",
@@ -596,7 +558,7 @@ return {
 		"github/copilot.vim",
 		config = function()
 			vim.g.copilot_no_tab_map = true
-			vim.api.nvim_set_keymap("i", "<C-g>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+			vim.api.nvim_set_keymap("i", "<C-y>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 		end,
 	},
 
