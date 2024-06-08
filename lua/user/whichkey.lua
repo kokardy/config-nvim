@@ -109,7 +109,6 @@ local mappings = {
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }, -- conflict Octo `add comment`
-	["h"] = { "<cmd>HopWord<CR>", "Hop Word" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
