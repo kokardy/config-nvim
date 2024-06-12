@@ -52,6 +52,7 @@ return {
 					rootMakers = rootMakers.python,
 					lintIgnoreExitCode = true,
 				},
+
 				{
 					lintCommand = "cspell lint --no-progress --no-summary --no-color",
 					lintStdin = false,
