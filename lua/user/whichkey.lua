@@ -110,7 +110,7 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }, -- conflict Octo `add comment`
 	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope').extensions.smart_open.smart_open()<cr>",
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
