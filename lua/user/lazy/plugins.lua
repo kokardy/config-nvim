@@ -87,10 +87,20 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = { "VimEnter" },
+		event = { "VeryLazy" },
 		config = function()
 			require("user.whichkey")
 		end,
+		opts = {
+			prefix = "<leader>",
+			buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+			silent = true, -- use `silent` when creating keymaps
+			noremap = true, -- use `noremap` when creating keymaps
+			nowait = true, -- use `nowait` when creating keymaps
+		},
+		dependencies = {
+			{ "kyazdani42/nvim-web-devicons" },
+		},
 	},
 
 	-- Colorschemes
@@ -156,8 +166,11 @@ return {
 	},
 	-- enable LSP
 	{
-		"williamboman/nvim-lsp-installer",
+		"williamboman/mason.nvim",
 		event = { "BufEnter" },
+		dependencies = {
+			{ "williamboman/mason-lspconfig.nvim" },
+		},
 	}, -- simple to use language server installer
 
 	-- Telescope
