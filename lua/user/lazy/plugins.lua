@@ -119,26 +119,6 @@ return {
 			{ "hrsh7th/cmp-path", event = { "InsertEnter" } },
 			{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" } },
 			{ "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" } },
-			{
-				"uga-rosa/cmp-dictionary",
-				event = { "InsertEnter" },
-				config = function()
-					require("cmp_dictionary").setup({
-						paths = {
-							"/usr/share/dict/words",
-						},
-						exact_length = 2,
-						first_case_insensitive = false,
-						document = {
-							enable = false,
-							command = { "wn", "%s", "-over" },
-						},
-						async = false,
-						max_number_items = 5,
-						debug = false,
-					})
-				end,
-			},
 			{ "saadparwaiz1/cmp_luasnip", event = { "InsertEnter" } },
 		},
 	},
