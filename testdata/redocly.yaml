@@ -1,6 +1,6 @@
 extends:
   - recommended
-
+# infomation typo
 apis:
   core@v2:
     root: ./openapi.yaml

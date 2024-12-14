@@ -20,6 +20,7 @@ local servers = {
 
 	-- python
 	"pyright",
+	"ruff",
 	-- "pylsp",
 
 	-- go

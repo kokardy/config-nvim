@@ -1,0 +1,69 @@
+version: 2
+log-file: /tmp/efm.log
+log-level: 1
+# root-markers:
+#   - .git/
+lint-debounce: 1s
+commands:
+  - command: nvim
+    arguments:
+      - ${INPUT}
+    title: メモ帳
+tools:
+  lua-stylua: &lua-stylua
+    lint-command: "stylua -"
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-makers:
+      - ".stylua.toml"
+      - "stylua.toml"
+  python-mypy: &python-mypy
+    lint-command: '${VIRTUAL_ENV}/bin/mypy --strict --show-column-numbers'
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
+    root-makers:
+      - ".venv/"
+      - "pyproject.toml"
+      - "mypy.ini"
+  cspell: &cspell
+    lint-command: "cspell lint --no-progress --no-summary --no-color"
+    lint-stdin: false
+    root-makers: "cspell.yaml"
+    lint-ignore-exitCode: true
+  javascript-prettier: &javascript-prettier
+    lint-command: "prettier ---single-quote"
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-makers:
+      - ".package.json"
+  jsx-prettier: &jsx-prettier
+    lint-command: "prettier - --no-semi --single-quote --jsx-single-quote"
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-makers:
+      - ".package.json"
+  openapi-spectral: &openapi-spectral
+    lint-command: "spectral lint -f text -F hint"
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-makers:
+      - ".spectral.yaml"
+languages:
+  python:
+    - <<: *python-mypy
+    - <<: *cspell
+  lua:
+    - <<: *lua-stylua
+  javascript:
+    - <<: *javascript-prettier
+  jsx:
+    - <<: *jsx-prettier
+  markdown:
+    - <<: *cspell
+  yaml:
+    - <<: *cspell
+  openapi:
+    - <<: *cspell
+    - <<: *openapi-spectral
