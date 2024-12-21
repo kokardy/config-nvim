@@ -137,20 +137,14 @@ return {
 
 	-- LSP
 	{
-		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
 		-- event = { "BufEnter" },
+		dependencies = {
+			{ "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" },
+		},
 		config = function()
 			require("user.lsp")
 		end,
-		-- dependencies = { { "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" }, } },
-	},
-	-- enable LSP
-	{
-		"williamboman/mason.nvim",
-		event = { "BufEnter" },
-		dependencies = {
-			{ "williamboman/mason-lspconfig.nvim" },
-		},
 	}, -- simple to use language server installer
 
 	-- Telescope
@@ -536,11 +530,11 @@ return {
 		opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "o" },      function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
 	},
 	-- easy-align
