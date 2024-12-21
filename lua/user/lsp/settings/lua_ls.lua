@@ -14,7 +14,7 @@ return {
 					[vim.fn.stdpath("config") .. "/lua"] = true,
 				},
 			},
-			format = false,
+			-- format = false,
 		},
 	},
 }
