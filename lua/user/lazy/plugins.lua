@@ -527,6 +527,44 @@ return {
   -- SQL Uppercased
   { "jsborjesson/vim-uppercase-sql" },
 
+  -- SQL client nvim-dbee
+  {
+    "kndndrj/nvim-dbee",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    build = function()
+      -- Install tries to automatically detect the install method.
+      -- if it fails, try calling it with one of these parameters:
+      --    "curl", "wget", "bitsadmin", "go"
+      require("dbee").install("go")
+    end,
+    config = function()
+      require("dbee").setup(
+        {
+          --[[optional config]]
+          editor = {
+            -- see drawer comment.
+            window_options = {},
+            buffer_options = {},
+
+            -- directory where to store the scratchpads.
+            --directory = "path/to/scratchpad/dir",
+
+            -- mappings for the buffer
+            mappings = {
+              -- run what's currently selected on the active connection
+              { key = "<leader>BB", mode = "v", action = "run_selection" },
+              -- run the whole file on the active connection
+              { key = "<leader>BB", mode = "n", action = "run_file" },
+            },
+          },
+        }
+      )
+    end,
+
+  },
+
   -- hop
   {
     "folke/flash.nvim",
