@@ -527,42 +527,23 @@ return {
   -- SQL Uppercased
   { "jsborjesson/vim-uppercase-sql" },
 
-  -- SQL client nvim-dbee
+  -- SQL client dadbod
   {
-    "kndndrj/nvim-dbee",
+    'kristijanhusak/vim-dadbod-ui',
     dependencies = {
-      "MunifTanjim/nui.nvim",
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
     },
-    build = function()
-      -- Install tries to automatically detect the install method.
-      -- if it fails, try calling it with one of these parameters:
-      --    "curl", "wget", "bitsadmin", "go"
-      require("dbee").install("go")
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
     end,
-    config = function()
-      require("dbee").setup(
-        {
-          --[[optional config]]
-          editor = {
-            -- see drawer comment.
-            window_options = {},
-            buffer_options = {},
-
-            -- directory where to store the scratchpads.
-            --directory = "path/to/scratchpad/dir",
-
-            -- mappings for the buffer
-            mappings = {
-              -- run what's currently selected on the active connection
-              { key = "<leader>BB", mode = "v", action = "run_selection" },
-              -- run the whole file on the active connection
-              { key = "<leader>BB", mode = "n", action = "run_file" },
-            },
-          },
-        }
-      )
-    end,
-
   },
 
   -- hop
