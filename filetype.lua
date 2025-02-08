@@ -25,6 +25,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- nginx.conf
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = "myFileType",
+	pattern = { "nginx.conf*" },
+	callback = function(ev)
+		vim.bo.filetype = "nginx"
+	end,
+})
 -- nuejs
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "myFileType",
