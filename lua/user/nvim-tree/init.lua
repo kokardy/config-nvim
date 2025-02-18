@@ -9,7 +9,7 @@ nvim_tree.setup({
   -- mapping key
   -- on_attach=on_attach,
   filters = {
-    dotfilees = false,
+    dotfiles = false,
   },
 
   update_focused_file = {
