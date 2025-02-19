@@ -10,6 +10,11 @@ nvim_tree.setup({
   -- on_attach=on_attach,
   filters = {
     dotfiles = false,
+    git_ignored = false,
+    custom = {
+      "^\\.git",
+      "^node_modules",
+    },
   },
 
   update_focused_file = {
