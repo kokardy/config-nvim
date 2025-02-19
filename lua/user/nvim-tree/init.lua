@@ -14,6 +14,8 @@ nvim_tree.setup({
     custom = {
       "^\\.git",
       "^node_modules",
+      "^\\.venv",
+      "^\\.ruff_cache",
     },
   },
 
