@@ -23,3 +23,5 @@ require("user.yoshi")
 -- require("user.impatient")
 -- require("user.indentline")
 -- require("user.alpha")
+
+vim.g.dbext_default_ORA_bin = "sql"
