@@ -23,7 +23,7 @@ oil.setup(
       max_height = 40,
       border = "rounded",
       win_options = {
-        winblend = 0,
+        winblend = 1,
       },
       -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
       get_win_title = nil,
