@@ -17,7 +17,7 @@ return {
           -- prompt = ': ',
 
           -- Let the user handle the keybindings
-          enable_keymaps = false
+          -- enable_keymaps = false
         },
         popup = {
           position = {
@@ -646,6 +646,7 @@ return {
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.api.nvim_set_keymap("i", "<C-y>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+      vim.api.nvim_set_keymap("i", "<M-y>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
     end,
   },
 
