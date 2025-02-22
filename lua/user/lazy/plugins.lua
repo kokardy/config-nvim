@@ -34,11 +34,14 @@ return {
     "kyazdani42/nvim-web-devicons",
   },
   {
-    "kyazdani42/nvim-tree.lua",
-    -- cmd = { "NvimTree*" },
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+    },
     config = function()
-      require("user.nvim-tree")
-    end,
+      require("user.oil")
+    end
   },
   {
     "akinsho/bufferline.nvim",
