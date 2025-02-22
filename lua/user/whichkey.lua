@@ -44,7 +44,7 @@ local mappings = {
     nowait = true,
     remap = false,
   },
-  { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out",  nowait = true, remap = false },
+  { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>",     desc = "Step Out",  nowait = true, remap = false },
   {
     "<leader>dv",
     "<cmd>lua require('dapui').eval()<CR>",
@@ -52,7 +52,7 @@ local mappings = {
     nowait = true,
     remap = false,
   },
-  { "<leader>e",  "<cmd>NvimTreeToggle<cr>",              desc = "File Tree", nowait = true, remap = false },
+  { "<leader>e",  "<cmd>lua require'oil'.toggle_float()<cr>", desc = "File Tree", nowait = true, remap = false },
   {
     "<leader>f",
     "<cmd>lua require('telescope').extensions.smart_open.smart_open()<cr>",
