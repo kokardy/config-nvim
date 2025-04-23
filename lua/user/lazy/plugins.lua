@@ -32,7 +32,7 @@ return {
           },
           win_options = {
             winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
-            winblend=10,
+            winblend = 10,
           },
           buf_options = {
             -- Setup a special file type if you need to
@@ -499,6 +499,7 @@ return {
       }
       sidebar.setup(opts)
     end,
+    lazy = true,
   },
 
   -- notify
@@ -556,21 +557,29 @@ return {
     "stonelasley/flare.nvim",
     config = function()
       require("flare").setup({
-        enabled = true,         -- disable highlighting
-        hl_group = "IncSearch", -- set highlight group used for highlight
-        x_threshold = 5,        -- column changes greater than this number trigger highlight
-        y_threshold = 3,        -- row changes greater than this number trigger highlight
-        expanse = 4,            -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
-        file_ignore = {         -- suppress highlighting for files of this type
+        enabled               = true,        -- disable highlighting
+        hl_group              = "IncSearch", -- set highlight group used for highlight
+        x_threshold           = 5,           -- column changes greater than this number trigger highlight
+        y_threshold           = 3,           -- row changes greater than this number trigger highlight
+        expanse               = 4,           -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
+        file_ignore           = {            -- suppress highlighting for files of this type
           "NvimTree",
           "fugitive",
           "TelescopePrompt",
           "TelescopeResult",
           "alpha",
+          "copilot",
+          "codecompanion",
         },
-        fade = true,       -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
-        underline = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
-        timeout = 100,     -- timeout delay
+        fade                  = true,  -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
+        fade_duration         = 1000,  -- duration to fade highlight in milliseconds
+        fade_delay            = 0,     -- delay before fading in milliseconds
+        fade_animate          = true,  -- if false will not animate fading
+        fade_animate_duration = 300,   -- duration to fade in milliseconds
+        underline             = true,  -- if true will use underline highlight
+        underline             = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
+        timeout               = 100,   -- timeout delay
+
       })
     end,
   },
@@ -650,23 +659,52 @@ return {
     end,
   },
 
-  -- copilot chat
+  -- code companion
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
+    "olimorris/codecompanion.nvim",
     dependencies = {
-      { "github/copilot.vim" },                       -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
-    build = "make tiktoken",                          -- Only on MacOS or Linux
     opts = {
-      -- See Configuration section for options
+      language = "japanese",
+      strategies = {
+        chat = {
+          adapter = "copilot",
+        },
+        inline = {
+          adapter = "copilot",
+        },
+      },
+      -- [追加]
+      adapters = {
+        -- copilotアダプタを上書き
+        copilot = function()
+          -- 既定のcopilotアダプタをベースに
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                -- デフォルトモデルを Claude 3.7 Sonnet に
+                -- default = "claude-3.7-sonnet",
+                default = "gpt-4.1",
+                -- default = "o4-mini",
+              },
+            },
+          })
+        end,
+      },
     },
-    -- See Commands section for default commands if you want to lazy load on them
-    config = function()
-      require("CopilotChat").setup({
-        debug = true,
-      })
-    end,
+
+    -- opts = function(_, opts)
+    --   -- 環境に依存しない設定
+    --   local base_opts = {}
+    --   -- 環境ごとに切り分けたい設定
+    --   local env_opts = require("codecompanion").opts
+    --
+    --   -- デフォルト設定 -> 環境に依存しない設定 -> 環境に依存する設定 の順にマージ
+    --   return vim.tbl_deep_extend("force", opts, base_opts, env_opts)
+    -- end,
+
   },
 
   -- markdown code block loader
