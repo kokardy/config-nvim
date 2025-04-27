@@ -1,14 +1,18 @@
 local _M = {}
 
-_M.setup = function(opts)
-end
-
-_M.opts = {
+local params = {
+  opts = {
+    laungage = "Japanese",
+    log_level = "DEBUG",   -- or "TRACE"
+  },
   strategies = {
     chat = {
       adapter = "copilot",
     },
     inline = {
+      adapter = "copilot",
+    },
+    cmd = {
       adapter = "copilot",
     },
   },
@@ -29,5 +33,8 @@ _M.opts = {
   },
 }
 
+_M.setup = function(opts)
+  require("codecompanion").setup(params)
+end
 
 return _M
