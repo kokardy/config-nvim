@@ -355,7 +355,7 @@ return {
     dependencies = {
       { "nvim-telescope/telescope.nvim", opt = true },
     },
-    wantas = { "telescope.nvim" },
+    wants = { "telescope.nvim" },
     config = function()
       -- local utils = require("yanky.utils")
       local mapping = require("yanky.telescope.mapping")
@@ -388,12 +388,6 @@ return {
     end,
   },
 
-  -- trouble
-  { "folke/trouble.nvim", },
-
-  -- browser
-  --[[ { "tyru/open-browser.vim" }) ]]
-
   -- markdown
   {
     "preservim/vim-markdown",
@@ -401,15 +395,15 @@ return {
     config = function()
       vim.g.vim_markdown_folding_disabled = 1
     end,
-    require = "godlygeek/tabular",
+    dependencies = { { "godlygeek/tabular" } },
   },
   {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
+    build = "cd app && npm install",
     ft = { "markdown" },
     dependencies = { { "tyru/open-browser.vim" } },
   },
-  { "mattn/vim-maketable", ft = { "markdown" } },
+  { "mattn/vim-maketable",     ft = { "markdown" } },
 
   -- plantuml
   {
@@ -500,6 +494,7 @@ return {
       sidebar.setup(opts)
     end,
     lazy = true,
+    event = { "BufRead" }
   },
 
   -- notify
@@ -571,14 +566,14 @@ return {
           "copilot",
           "codecompanion",
         },
-        fade                  = true,  -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
-        fade_duration         = 1000,  -- duration to fade highlight in milliseconds
-        fade_delay            = 0,     -- delay before fading in milliseconds
-        fade_animate          = true,  -- if false will not animate fading
-        fade_animate_duration = 300,   -- duration to fade in milliseconds
-        underline             = true,  -- if true will use underline highlight
-        underline             = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
-        timeout               = 100,   -- timeout delay
+        fade                  = true, -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
+        fade_duration         = 1000, -- duration to fade highlight in milliseconds
+        fade_delay            = 0,    -- delay before fading in milliseconds
+        fade_animate          = true, -- if false will not animate fading
+        fade_animate_duration = 300,  -- duration to fade in milliseconds
+        underline             = true, -- if true will use underline highlight
+        -- underline             = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
+        timeout               = 100,  -- timeout delay
 
       })
     end,
@@ -666,45 +661,9 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    opts = {
-      language = "japanese",
-      strategies = {
-        chat = {
-          adapter = "copilot",
-        },
-        inline = {
-          adapter = "copilot",
-        },
-      },
-      -- [追加]
-      adapters = {
-        -- copilotアダプタを上書き
-        copilot = function()
-          -- 既定のcopilotアダプタをベースに
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                -- デフォルトモデルを Claude 3.7 Sonnet に
-                -- default = "claude-3.7-sonnet",
-                default = "gpt-4.1",
-                -- default = "o4-mini",
-              },
-            },
-          })
-        end,
-      },
-    },
-
-    -- opts = function(_, opts)
-    --   -- 環境に依存しない設定
-    --   local base_opts = {}
-    --   -- 環境ごとに切り分けたい設定
-    --   local env_opts = require("codecompanion").opts
-    --
-    --   -- デフォルト設定 -> 環境に依存しない設定 -> 環境に依存する設定 の順にマージ
-    --   return vim.tbl_deep_extend("force", opts, base_opts, env_opts)
-    -- end,
-
+    config = function()
+      require("user.codecompanion").setup()
+    end,
   },
 
   -- markdown code block loader
