@@ -399,9 +399,17 @@ return {
   },
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_browser = "brave-browser"
+      -- vim.g.mkdp_auto_start = 0
+      vim.g.mkdp_auto_close = 1
+      -- vim.g.mkdp_refresh_slow = 1
+      -- vim.g.mkdp_open_to_the_world = 1
+    end,
     ft = { "markdown" },
-    dependencies = { { "tyru/open-browser.vim" } },
   },
   { "mattn/vim-maketable",     ft = { "markdown" } },
 
