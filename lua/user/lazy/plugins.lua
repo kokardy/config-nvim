@@ -402,8 +402,13 @@ return {
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
     init = function()
+      vim.cmd([[
+        function! OpenMarkdownPreview(url)
+            execute "silent ! brave-browser --incognito " . a:url
+        endfunction
+        let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+      ]], false)
       vim.g.mkdp_filetypes = { "markdown" }
-      vim.g.mkdp_browser = "brave-browser"
       -- vim.g.mkdp_auto_start = 0
       vim.g.mkdp_auto_close = 1
       -- vim.g.mkdp_refresh_slow = 1
