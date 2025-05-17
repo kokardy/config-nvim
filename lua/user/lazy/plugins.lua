@@ -200,6 +200,19 @@ return {
     end,
   }, -- simple to use language server installer
 
+  -- for lua language server
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
