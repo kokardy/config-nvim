@@ -608,9 +608,6 @@ return {
   -- swap
   { "mizlan/iswap.nvim" },
 
-  -- SQL Uppercased
-  { "jsborjesson/vim-uppercase-sql" },
-
   -- SQL client dadbod
   {
     'kristijanhusak/vim-dadbod-ui',
