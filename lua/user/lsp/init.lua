@@ -5,6 +5,3 @@ end
 
 require("user.lsp.configs").setup()
 require("user.lsp.handlers").setup()
--- require("user.lsp.null-ls")
-
--- require("user.lsp.efm-langserver").setup()
