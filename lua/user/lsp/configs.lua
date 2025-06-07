@@ -1,13 +1,23 @@
-local status_ok, lsp_installer = pcall(require, "mason")
-if not status_ok then
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+  return
+end
+mason.setup()
+
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+  return
+end
+local mlspconfig_ok, mlspconfig = pcall(require, "mason-lspconfig")
+if not mlspconfig_ok then
   return
 end
 
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 
 local M = {}
 
-local servers = {
+M.servers = {
   -- efm
   "efm",
 
@@ -27,7 +37,7 @@ local servers = {
   "gopls",
 
   -- rust
-	"rust_analyzer",
+  "rust_analyzer",
 
   -- markdown
   "marksman",
@@ -42,9 +52,6 @@ local servers = {
   -- yaml
   "yamlls",
 
-  -- spectral efmに移行
-  -- "spectral",
-
   -- svelte
   "svelte",
 
@@ -52,17 +59,16 @@ local servers = {
   "ts_ls",
 
   -- sql
-  "sqlls",
+  "sqls",
 }
 
-M.servers = servers
-
 M.setup = function()
-  lsp_installer.setup({
-    ensure_installed = servers,
+  mlspconfig.setup({
+    automatic_enable = true,
+    ensure_installed = M.servers,
   })
 
-  for _, server in pairs(servers) do
+  for _, server in pairs(M.servers) do
     local opts = {
       on_attach = require("user.lsp.handlers").on_attach,
       capabilities = require("user.lsp.handlers").capabilities,
@@ -71,6 +77,7 @@ M.setup = function()
     if has_custom_opts then
       opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
     end
+
     lspconfig[server].setup(opts)
   end
 end
