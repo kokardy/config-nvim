@@ -8,7 +8,7 @@ export default createRulesetFunction(
 
   (code, _, context) => {
 
-    console.log(code);
+    // console.log(code);
     if ("type" in code && code.type !== "string"){
       return [
         {

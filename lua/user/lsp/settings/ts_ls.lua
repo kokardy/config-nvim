@@ -1,14 +1,17 @@
 local _M = {}
-local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
+
+local vue_ls_path = vim.fn.expand("$MASON/packages/vue-language-server")
+local vue_plugin_path = vue_ls_path .. "/node_modules/@vue/language-server"
 
 _M.init_options = {
   filetypes = { "typescript", "javascript", "vue" },
   plugins = {
     {
       name = "@vue/typescript-plugin",
-      location = vue_typescript_plugin,
+      location = vue_plugin_path,
       languages = { "vue" },
     },
   },
 }
+
+return _M

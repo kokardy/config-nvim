@@ -1,7 +1,10 @@
 from typing import List
+
+
 def main() -> None:
     print("OK")
-    a = ""
+    print("schedule schedale")
+    a: str = ""
     a = 3
 
 

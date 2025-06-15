@@ -18,7 +18,7 @@ end
 local M = {}
 
 M.servers = {
-  -- efm
+  -- efm-langserver
   "efm",
 
   -- json
@@ -64,21 +64,26 @@ M.servers = {
 
 M.setup = function()
   mlspconfig.setup({
-    automatic_enable = true,
+    automatic_enable = false,
+    -- automatic_enable = true,
     ensure_installed = M.servers,
   })
 
   for _, server in pairs(M.servers) do
-    local opts = {
-      on_attach = require("user.lsp.handlers").on_attach,
-      capabilities = require("user.lsp.handlers").capabilities,
-    }
+    -- local opts = {
+    --   on_attach = require("user.lsp.handlers").on_attach,
+    --   capabilities = require("user.lsp.handlers").capabilities,
+    -- }
+    local opts = {}
     local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
     if has_custom_opts then
       opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
     end
 
-    lspconfig[server].setup(opts)
+    vim.lsp.config(server, opts)
+    vim.lsp.enable(server)
+    -- lspconfig[server].setup(opts)
   end
 end
+
 return M

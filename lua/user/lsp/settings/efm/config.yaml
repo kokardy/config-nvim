@@ -10,31 +10,25 @@ commands:
       - ${INPUT}
     title: メモ帳
 tools:
-  lua-stylua: &lua-stylua
-    lint-command: "stylua -"
-    lint-formats:
-      - "%f:%l:%c: %m"
-    root-markers:
-      - ".stylua.toml"
-      - "stylua.toml"
   python-mypy: &python-mypy
-    # lint-command: '${VIRTUAL_ENV}/bin/mypy --strict --show-column-numbers ${INPUT}'
-    # lint-command: 'mypy --strict --show-column-numbers ${INPUT}'
-    # lint-command: '${VIRTUAL_ENV}/bin/dmypy run -- --strict --show-column-numbers ${INPUT}'
-    lint-command: 'dmypy run -- --strict --show-column-numbers --show-error-context ${INPUT}'
-    # lint-formats:
-    #   - '%f:%l:%c: %trror: %m'
-    #   - '%f:%l:%c: %tarning: %m'
-    #   - '%f:%l:%c: %tote: %m'
+    lint-command: '${VIRTUAL_ENV}/bin/mypy --strict --show-column-numbers'
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
     root-markers:
+      - ".venv/"
       - "pyproject.toml"
       - "mypy.ini"
   cspell: &cspell
-    lint-command: "cspell lint --no-progress --no-summary --no-color"
-    lint-stdin: false
+    prefix: cspell
+    lint-command: "cspell lint --no-progress --no-summary --no-color ${INPUT}"
     root-markers:
+      - ".cspell.yaml"
       - "cspell.yaml"
-    lint-ignore-exitCode: true
+    lint-formats:
+      - '%f:%l:%c - %m'
+      - '%f:%l:%c %m'
   javascript-prettier: &javascript-prettier
     lint-command: "prettier ---single-quote"
     lint-formats:
@@ -47,18 +41,25 @@ tools:
       - "%f:%l:%c: %m"
     root-markers:
       - ".package.json"
-  openapi-spectral: &openapi-spectral
-    lint-command: "spectral lint -f text -F hint"
+  spectral: &spectral
+    prefix: spectral
+    # lint-command: "spectral lint -f text -F hint ${INPUT} 2>&1 | tee /tmp/spectral.log"
+    lint-command: "spectral lint -f text -F hint ${INPUT}"
     lint-formats:
-      - "%f:%l:%c: %m"
+      - "%f:%l:%c %trror %m"
+      - "%f:%l:%c %tarning %m"
+      - '%f:%l:%c %tote: %m'
     root-markers:
       - ".spectral.yaml"
+      - ".spectral.yml"
+      - ".spectral.json"
+      - "spectral.yaml"
+      - "spectral.yml"
+      - "spectral.json"
 languages:
   python:
     - <<: *python-mypy
     - <<: *cspell
-  # lua:
-  #   - <<: *lua-stylua
   javascript:
     - <<: *javascript-prettier
   jsx:
@@ -69,4 +70,4 @@ languages:
     - <<: *cspell
   openapi:
     - <<: *cspell
-    - <<: *openapi-spectral
+    - <<: *spectral
