@@ -1,60 +1,6 @@
 return {
   -- plugins
   {
-    "VonHeikemen/fine-cmdline.nvim",
-    dependencies = {
-      { "MunifTanjim/nui.nvim" },
-    },
-    config = function()
-      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
-      local fineline = require('fine-cmdline')
-      local fn = fineline.fn
-
-      fineline.setup({
-        cmdline = {
-          -- Prompt can influence the completion engine.
-          -- Change it to something that works for you
-          -- prompt = ': ',
-
-          -- Let the user handle the keybindings
-          -- enable_keymaps = false
-        },
-        popup = {
-          position = {
-            row = '10%',
-            col = '50%',
-          },
-          size = {
-            width = '60%',
-          },
-          border = {
-            style = 'rounded',
-          },
-          win_options = {
-            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
-            winblend = 10,
-          },
-          buf_options = {
-            -- Setup a special file type if you need to
-            filetype = 'FineCmdlinePrompt'
-          }
-        },
-        hooks = {
-          set_keymaps = function(imap, feedkeys)
-            -- Restore default keybindings...
-            -- Except for `<Tab>`, that's what everyone uses to autocomplete
-            imap('<Esc>', fn.close)
-            imap('<C-c>', fn.close)
-
-            imap('<Up>', fn.up_search_history)
-            imap('<Down>', fn.down_search_history)
-          end
-        }
-      })
-    end
-  },
-
-  {
     "windwp/nvim-autopairs",
     event = { "BufEnter" },
     config = function()
@@ -91,7 +37,7 @@ return {
     },
     config = function()
       require("user.oil")
-    end
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -415,19 +361,22 @@ return {
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
     init = function()
-      vim.cmd([[
+      vim.cmd(
+        [[
         function! OpenMarkdownPreview(url)
             execute "silent ! brave-browser --incognito " . a:url
         endfunction
         let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-      ]], false)
-      vim.g.mkdp_filetypes = { "markdown" }
+      ]],
+        false
+      )
+      vim.g.mkdp_filetypes = { "markdown", "plantuml" }
       -- vim.g.mkdp_auto_start = 0
       vim.g.mkdp_auto_close = 1
       -- vim.g.mkdp_refresh_slow = 1
       -- vim.g.mkdp_open_to_the_world = 1
     end,
-    ft = { "markdown" },
+    ft = { "markdown", "plantuml" },
   },
   { "mattn/vim-maketable",     ft = { "markdown" } },
 
@@ -520,7 +469,7 @@ return {
       sidebar.setup(opts)
     end,
     lazy = true,
-    event = { "BufRead" }
+    event = { "BufRead" },
   },
 
   -- notify
@@ -578,12 +527,12 @@ return {
     "stonelasley/flare.nvim",
     config = function()
       require("flare").setup({
-        enabled               = true,        -- disable highlighting
-        hl_group              = "IncSearch", -- set highlight group used for highlight
-        x_threshold           = 5,           -- column changes greater than this number trigger highlight
-        y_threshold           = 3,           -- row changes greater than this number trigger highlight
-        expanse               = 4,           -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
-        file_ignore           = {            -- suppress highlighting for files of this type
+        enabled = true,         -- disable highlighting
+        hl_group = "IncSearch", -- set highlight group used for highlight
+        x_threshold = 5,        -- column changes greater than this number trigger highlight
+        y_threshold = 3,        -- row changes greater than this number trigger highlight
+        expanse = 4,            -- highlight will expand to the left and right of cursor up to this amount (depending on space available)
+        file_ignore = {         -- suppress highlighting for files of this type
           "NvimTree",
           "fugitive",
           "TelescopePrompt",
@@ -592,15 +541,14 @@ return {
           "copilot",
           "codecompanion",
         },
-        fade                  = true, -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
-        fade_duration         = 1000, -- duration to fade highlight in milliseconds
-        fade_delay            = 0,    -- delay before fading in milliseconds
-        fade_animate          = true, -- if false will not animate fading
-        fade_animate_duration = 300,  -- duration to fade in milliseconds
-        underline             = true, -- if true will use underline highlight
+        fade = true,                 -- if false will flash highlight for entire area similar to 'vim.highlight.on_yank'
+        fade_duration = 1000,        -- duration to fade highlight in milliseconds
+        fade_delay = 0,              -- delay before fading in milliseconds
+        fade_animate = true,         -- if false will not animate fading
+        fade_animate_duration = 300, -- duration to fade in milliseconds
+        underline = true,            -- if true will use underline highlight
         -- underline             = false, -- if true will use more subtle underline highlight. Underline highlight can also be accomplished by setting hl_group
-        timeout               = 100,  -- timeout delay
-
+        timeout = 100,               -- timeout delay
       })
     end,
   },
@@ -610,16 +558,16 @@ return {
 
   -- SQL client dadbod
   {
-    'kristijanhusak/vim-dadbod-ui',
+    "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { 'tpope/vim-dadbod',                     lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+      { "tpope/vim-dadbod",                     lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
     },
     cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
     },
     init = function()
       -- Your DBUI configuration

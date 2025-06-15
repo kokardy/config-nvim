@@ -3,7 +3,12 @@ local _M = {}
 local params = {
   opts = {
     laungage = "Japanese",
-    log_level = "DEBUG",   -- or "TRACE"
+    log_level = "DEBUG", -- or "TRACE"
+  },
+  display = {
+    chat = {
+      auto_scroll = false,
+    },
   },
   strategies = {
     chat = {
