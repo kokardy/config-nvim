@@ -1,6 +1,8 @@
 local _M = {}
 
-local params = {
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+_M.opts = {
   opts = {
     laungage = "Japanese",
     log_level = "DEBUG", -- or "TRACE"
@@ -13,12 +15,15 @@ local params = {
   strategies = {
     chat = {
       adapter = "copilot",
+      -- adapter = "gemini",
     },
     inline = {
       adapter = "copilot",
+      -- adapter = "gemini",
     },
     cmd = {
       adapter = "copilot",
+      -- adapter = "gemini",
     },
   },
   -- [追加]
@@ -36,10 +41,22 @@ local params = {
       })
     end,
   },
+  -- gemini
+  gemini = function()
+    return require("codecompanion.adapters").extend("gemini", {
+      env = {
+        -- Gemini APIキーを設定
+        api_key = GEMINI_API_KEY,
+      },
+      schema = {
+        model = {
+          -- デフォルトモデルを Gemini 2.5 Pro に
+          default = "gemini-2.5-pro-preview-06-05",
+          -- default = "gemini-2.5-pro",
+        },
+      },
+    })
+  end,
 }
-
-_M.setup = function(opts)
-  require("codecompanion").setup(params)
-end
 
 return _M
