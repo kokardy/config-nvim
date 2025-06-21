@@ -6,7 +6,12 @@ end
 local opts = {}
 
 local mappings = {
-  { "<leader>F",  "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text",     nowait = true, remap = false },
+  { "<leader>C",  group = "Code Companion",                 nowait = true,                        remap = false },
+  { "<leader>Cc", "<cmd>CodeCompanionChat toggle<cr>",      desc = "Code Companion Chat toggle",  nowait = true, remap = false },
+  { "<leader>Cn", "<cmd>CodeCompanionChat<cr>",             desc = "Code Companion Chat new",     nowait = true, remap = false },
+  { "<leader>Ca", "<cmd>CodeCompanionActions<cr>",          desc = "Code Companion Chat Actions", nowait = true, remap = false },
+
+  { "<leader>F",  "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text",                   nowait = true, remap = false },
   {
     "<leader>P",
     "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
@@ -14,9 +19,9 @@ local mappings = {
     nowait = true,
     remap = false,
   },
-  { "<leader>S",  group = "Sidebar",                        nowait = true,          remap = false },
-  { "<leader>St", "<cmd>SidebarNvimToggle<cr>",             desc = "SidebarToggle", nowait = true, remap = false },
-  { "<leader>a",  "<cmd>Alpha<cr>",                         desc = "Alpha",         nowait = true, remap = false },
+  { "<leader>S",  group = "Sidebar",            nowait = true,          remap = false },
+  { "<leader>St", "<cmd>SidebarNvimToggle<cr>", desc = "SidebarToggle", nowait = true, remap = false },
+  { "<leader>a",  "<cmd>Alpha<cr>",             desc = "Alpha",         nowait = true, remap = false },
   {
     "<leader>b",
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",

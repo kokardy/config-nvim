@@ -632,9 +632,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("user.codecompanion").setup()
-    end,
+    opts = require("user.codecompanion").opts,
   },
 
   -- markdown code block loader
