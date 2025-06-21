@@ -40,23 +40,24 @@ _M.opts = {
         },
       })
     end,
-  },
-  -- gemini
-  gemini = function()
-    return require("codecompanion.adapters").extend("gemini", {
-      env = {
-        -- Gemini APIキーを設定
-        api_key = GEMINI_API_KEY,
-      },
-      schema = {
-        model = {
-          -- デフォルトモデルを Gemini 2.5 Pro に
-          default = "gemini-2.5-pro-preview-06-05",
-          -- default = "gemini-2.5-pro",
+    -- geminiアダプタを追加
+    gemini = function()
+      -- 既定のgeminiアダプタをベースに
+      return require("codecompanion.adapters").extend("gemini", {
+        env = {
+          -- Gemini APIキーを設定
+          api_key = GEMINI_API_KEY,
         },
-      },
-    })
-  end,
+        schema = {
+          model = {
+            -- デフォルトモデルを Gemini 2.5 Pro に
+            default = "gemini-2.5-pro-preview-06-05",
+            -- default = "gemini-2.5-pro",
+          },
+        },
+      })
+    end,
+  },
 }
 
 return _M
