@@ -12,7 +12,8 @@ commands:
 tools:
   python-mypy: &python-mypy
     prefix: mypy
-    lint-command: 'uv run mypy --strict --show-column-numbers'
+    # lint-command: 'uv run mypy --strict --show-column-numbers'
+    lint-command: 'uv run dmypy run -- --strict --show-column-numbers ${INPUT}'
     lint-formats:
       - '%f:%l:%c: %trror: %m'
       - '%f:%l:%c: %tarning: %m'

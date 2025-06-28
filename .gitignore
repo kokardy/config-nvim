@@ -1,5 +1,8 @@
 .repro
 
+# mypy
+.dmypy.json
+
 # python
 *.pyc
 
