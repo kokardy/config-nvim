@@ -1,3 +1,10 @@
 ignoreWords:
   - stylua
   - nvim
+  - mypy
+  - venv
+  - trror
+  - tarning
+  - tote
+  - pyproject
+

@@ -1,5 +1,11 @@
 .repro
 
+# python
+*.pyc
+
+# uv
+uv.lock
+
 # Compiled Lua sources
 luac.out
 
@@ -46,3 +52,4 @@ HackGen*
 lua/submodules
 
 ./plugged
+.aider*

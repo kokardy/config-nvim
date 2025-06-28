@@ -6,6 +6,7 @@ def main() -> None:
     print("schedule schedale")
     a: str = ""
     a = 3
+    print(a)
 
 
 if __name__ == "__main__":

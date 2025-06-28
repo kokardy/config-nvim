@@ -52,7 +52,7 @@ _M.opts = {
           model = {
             -- デフォルトモデルを Gemini 2.5 Pro に
             default = "gemini-2.5-pro-preview-06-05",
-            -- default = "gemini-2.5-pro",
+            -- default = "gemini-2.5-flash-preview-05-20",
           },
         },
       })
