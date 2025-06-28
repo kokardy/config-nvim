@@ -11,11 +11,15 @@ commands:
     title: メモ帳
 tools:
   python-mypy: &python-mypy
-    lint-command: '${VIRTUAL_ENV}/bin/mypy --strict --show-column-numbers'
+    lint-command: 'uv run mypy --strict --show-column-numbers ${INPUT}'
     lint-formats:
       - '%f:%l:%c: %trror: %m'
       - '%f:%l:%c: %tarning: %m'
       - '%f:%l:%c: %tote: %m'
+      - '%f:%l: %trror: %m'
+      - '%f:%l: %tarning: %m'
+      - '%f:%l: %tote: %m'
+    prefix: mypy
     root-markers:
       - ".venv/"
       - "pyproject.toml"
@@ -48,7 +52,7 @@ tools:
     lint-formats:
       - "%f:%l:%c %trror %m"
       - "%f:%l:%c %tarning %m"
-      - '%f:%l:%c %tote: %m'
+      - "%f:%l:%c %tote: %m"
     root-markers:
       - ".spectral.yaml"
       - ".spectral.yml"
