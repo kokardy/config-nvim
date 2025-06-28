@@ -2,6 +2,7 @@ ignoreWords:
   - stylua
   - nvim
   - mypy
+  - dmypy
   - venv
   - trror
   - tarning
