@@ -1,3 +1,4 @@
+local config_path = vim.fn.stdpath("config")
 return {
   -- plugins
   {
@@ -371,6 +372,7 @@ return {
         false
       )
       vim.g.mkdp_filetypes = { "markdown", "plantuml" }
+      vim.g.mkdp_markdown_css = config_path .. "/mkdp_markdown.css"
       -- vim.g.mkdp_auto_start = 0
       vim.g.mkdp_auto_close = 1
       -- vim.g.mkdp_refresh_slow = 1
