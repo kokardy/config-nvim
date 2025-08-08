@@ -46,7 +46,6 @@ _M.opts = {
     --   return require("codecompanion.adapters").extend("copilot", {
     --     schema = {
     --       model = {
-    --         -- デフォルトモデルを Claude Sonnet 4 に
     --         default = "gpt-5",
     --       },
     --     },
