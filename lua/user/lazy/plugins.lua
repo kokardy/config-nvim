@@ -637,6 +637,12 @@ return {
     opts = require("user.codecompanion").opts,
   },
 
+  -- lilypond
+  {
+    'martineausimon/nvim-lilypond-suite',
+    opts = require("user.lilypond_suite").opts,
+  },
+
   -- markdown code block loader
   {
     "kokardy/md-codeblock-loader.nvim",
