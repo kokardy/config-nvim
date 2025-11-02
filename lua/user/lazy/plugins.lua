@@ -640,7 +640,12 @@ return {
   -- lilypond
   {
     'martineausimon/nvim-lilypond-suite',
-    opts = require("user.lilypond_suite").opts,
+    ft = {"lilypond"},
+    config = function ()
+      local opts = require("user.lilypond_suite").opts
+      local nvls = require("nvls")
+      nvls.setup(opts)
+    end,
   },
 
   -- markdown code block loader
