@@ -29,7 +29,8 @@ M.servers = {
   "lua_ls",
 
   -- python
-  "pyright",
+  -- "pyright",
+  "basedpyright",
   "ruff",
   -- "pylsp",
 
