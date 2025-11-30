@@ -637,8 +637,24 @@ return {
     opts = require("user.codecompanion").opts,
   },
 
+  -- cmdbuf
+  -- ex-modeをバッファで開く
+  {
+    "notomo/cmdbuf.nvim",
+    config = function()
+      vim.keymap.set("n", "q:", function()
+        require("cmdbuf").split_open(vim.o.cmdwinheight)
+      end)
+    end,
+  },
+
   -- live-rename
-  { "saecki/live-rename.nvim" },
+  {
+    "saecki/live-rename.nvim",
+    config = function()
+      require("live-rename").setup()
+    end,
+  },
 
   -- color code preview
   {
