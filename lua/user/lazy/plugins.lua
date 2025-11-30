@@ -637,11 +637,27 @@ return {
     opts = require("user.codecompanion").opts,
   },
 
+  -- live-rename
+  { "saecki/live-rename.nvim" },
+
+  -- color code preview
+  {
+    "brenoprata10/nvim-highlight-colors",
+    -- ft = { "css", "scss", "html", "javascriptreact", "typescriptreact" },
+    config = function()
+      require("nvim-highlight-colors").setup({
+        virtual_symbol = '■',
+        virtual_symbol_position = "inline",
+        enable_tailwind = true,
+      })
+    end,
+  },
+
   -- lilypond
   {
     'martineausimon/nvim-lilypond-suite',
-    ft = {"lilypond"},
-    config = function ()
+    ft = { "lilypond" },
+    config = function()
       local opts = require("user.lilypond_suite").opts
       local nvls = require("nvls")
       nvls.setup(opts)
@@ -652,4 +668,5 @@ return {
   {
     "kokardy/md-codeblock-loader.nvim",
   },
+
 }

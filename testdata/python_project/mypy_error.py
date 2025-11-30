@@ -8,6 +8,13 @@ def main() -> None:
     a = 3
     print(a)
 
+    my_streaming_response_2: str = "response"
+
+    my_streaming_response_2 = "new response"
+
+    print(my_streaming_response_2)
+
+
 
 if __name__ == "__main__":
     main()
