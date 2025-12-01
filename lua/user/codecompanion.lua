@@ -38,6 +38,7 @@ _M.opts = {
             model = {
               -- デフォルトモデルを変更
               default = "claude-sonnet-4.5",
+              max_tokens = 16000, -- 環境によってないとエラーになる場合がある
             },
           },
         })
