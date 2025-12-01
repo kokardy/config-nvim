@@ -36,8 +36,8 @@ _M.opts = {
         return require("codecompanion.adapters").extend("copilot", {
           schema = {
             model = {
-              -- デフォルトモデルを Claude Sonnet 4 に
-              default = "claude-sonnet-4",
+              -- デフォルトモデルを変更
+              default = "claude-sonnet-4.5",
             },
           },
         })
