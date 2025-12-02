@@ -50,6 +50,9 @@ M.servers = {
   -- bash
   "bashls",
 
+  -- html
+  "emmet_ls",
+
   -- yaml
   "yamlls",
 
