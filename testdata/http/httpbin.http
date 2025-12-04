@@ -1,0 +1,6 @@
+# @name=get
+GET https://httpbin.org/get
+
+###
+# @name=stream3
+GET https://httpbin.org/stream/3

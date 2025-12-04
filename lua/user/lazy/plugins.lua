@@ -680,6 +680,18 @@ return {
     end,
   },
 
+  -- rest http
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        table.insert(opts.ensure_installed, "http")
+      end,
+    }
+  },
+
   -- markdown code block loader
   {
     "kokardy/md-codeblock-loader.nvim",
