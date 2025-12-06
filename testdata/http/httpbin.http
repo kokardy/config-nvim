@@ -1,12 +1,48 @@
-# @name=get
-GET https://postman-echo.com/get?foo1=bar1&foo2=bar2
+### Shared
 
+
+< {%
+  console.log("Setting client_id in global scope")
+%}
+
+
+# @curl-insecure
 ###
+
+# @name postman-echo-get
+GET /get?foo1=bar1&foo2=bar2
+Host: postman-echo.com
+###
+
+# @name postman-echo-get-insecure
+GET /get?foo1=bar1&foo2=bar2
+Host: 162.159.142.41
+###
+
+# @name=get
+
+< {%
+  -- lua
+  client.global.foo3= "bar3"
+%}
+
+GET https://postman-echo.com/get?foo1=bar1&foo2=bar2&foo3={{foo3}} HTTP/1.1
+Accept: application/json
+
+> {%
+  const headers = response.body.headers;
+  console.log("Response Headers:", headers);
+%}
+###
+
+
 # @name=stream3
-GET https://httpbin.org/stream/3
+GET /stream/3
+Host: httpbin.org
 ###
 
 # @name=post
-POST https://httpbin.org/post?client_id={{client_id}}
+POST /post?client_id={{client_id}}
+Host: httpbin.org
 
 client_id={{client_id}}
