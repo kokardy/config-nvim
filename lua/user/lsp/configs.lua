@@ -30,7 +30,8 @@ M.servers = {
 
   -- python
   -- "pyright",
-  "basedpyright",
+  "ty",
+  -- "basedpyright",
   "ruff",
   -- "pylsp",
 
