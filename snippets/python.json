@@ -10,5 +10,21 @@
       "    main()"
     ],
     "description": "main function"
+  },
+  "defwrapper": {
+    "prefix": "defwrapper",
+    "body": [
+      "def decorator[**P, R](func: Callable[P, R]) -> Callable[P, R]:",
+      "    \"\"\"Decorator.\"\"\"",
+      "    @wraps(func)",
+      "    def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:",
+      "        start = datetime.now()",
+      "        result = func(*args, **kwargs)",
+      "        end = datetime.now()",
+      "        print(f\"Took {end - start} to execute.\")",
+      "        return result",
+      "    return wrapper"
+    ],
+    "description": "wrapper function(decorator)"
   }
 }
