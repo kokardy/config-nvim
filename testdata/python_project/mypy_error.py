@@ -2,6 +2,7 @@ from typing import Callable
 from functools import wraps
 from datetime import datetime
 import time
+import textwrap
 
 
 def timer[**P, R](func: Callable[P, R]) -> Callable[P, R]:
@@ -38,6 +39,16 @@ def main() -> None:
     print(my_streaming_response_2)
 
     test_timer()
+
+    t = """
+    This is a test string.
+        indent block.
+    It has multiple lines.
+    Each line is indented.
+    We will dedent it.
+    """
+
+    print(textwrap.dedent(t).strip())
 
 
 if __name__ == "__main__":
