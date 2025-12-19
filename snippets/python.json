@@ -27,6 +27,29 @@
     ],
     "description": "wrapper function(decorator)"
   },
+  "sqlalchemy_model": {
+    "prefix": "sqlalchemy_model",
+    "body": [
+      "from sqlalchemy import Column, BIGINT, String",
+      "",
+      "class ${1:User}(Base):",
+      "    __tablename__ = \"${2:users}\"",
+      "",
+      "    id = Column(BIGINT, primary_key=True, autoincrement=True)",
+      "    name = Column(String(255), nullable=False)",
+      "",
+      "    def __repr__(self) -> str:",
+      "        return f\"<${1:User}(id={self.id}, name={self.name})>\""
+    ],
+    "description": "wrapper function(decorator)"
+  },
+  "sqlalchemy_relationship": {
+    "prefix": "relationship_",
+    "body": [
+      "${1:children}: Mapped[list[\"${2:Child}\"]] = relationship(back_populates=\"${3:parent}\")"
+    ],
+    "description": "wrapper function(decorator)"
+  },
   "logger": {
     "prefix": "logger",
     "body": [
