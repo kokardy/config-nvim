@@ -1,139 +1,28 @@
 local config_path = vim.fn.stdpath("config")
 return {
   -- plugins
-  {
-    "windwp/nvim-autopairs",
-    event = { "BufEnter" },
-    config = function()
-      require("user.autopairs")
-    end,
-    dependencies = {
-      { "hrsh7th/nvim-cmp" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-    wants = {
-      "nvim-cmp",
-      "nvim-treesitter",
-    },
-  }, -- Autopairs, integrates with both cmp and treesitter
 
-  {
-    "numToStr/Comment.nvim",
-    event = { "VimEnter" },
-    config = function()
-      require("user.comment")
-    end,
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  },
-  {
-    "kyazdani42/nvim-web-devicons",
-  },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-    },
-    config = function()
-      require("user.oil")
-    end,
-  },
-  {
-    "akinsho/bufferline.nvim",
-    config = function()
-      require("user.bufferline")
-    end,
-  },
-  {
-    "moll/vim-bbye",
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("user.lualine")
-    end,
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    event = { "VimEnter" },
-    config = function()
-      require("user.toggleterm")
-    end,
-  },
-  {
-    "ahmedkhalf/project.nvim",
-    event = { "BufRead", "BufNewFile" },
-  },
+  -- {
+  --   "moll/vim-bbye",
+  -- },
+
+  -- Luaのモジュールをバイトコードとしてキャッシュしたり、モジュールに対応するパスをキャッシュすることで、Neovimの起動を高速化します。
   {
     "lewis6991/impatient.nvim",
     config = function()
       require("user.impatient")
     end,
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    config = function()
-      require("user.indentline")
-    end,
-  },
-  {
-    "goolord/alpha-nvim",
-    config = function()
-      require("user.alpha")
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    event = { "VeryLazy" },
-    config = function()
-      require("user.whichkey")
-    end,
-    opts = {
-      prefix = "<leader>",
-      buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true,  -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true,  -- use `nowait` when creating keymaps
-    },
-    dependencies = {
-      { "kyazdani42/nvim-web-devicons" },
-    },
-  },
 
-  -- Colorschemes
-  { "lunarvim/darkplus.nvim" },
-  { "folke/tokyonight.nvim", opt = true },
 
-  -- cmp plugins
-  {
-    "hrsh7th/nvim-cmp",
-    module = { "cmp" },
-    config = function()
-      require("user.cmp")
-    end,
-    dependencies = {
-      { "hrsh7th/cmp-buffer",       event = { "InsertEnter" } },
-      { "hrsh7th/cmp-path",         event = { "InsertEnter" } },
-      { "hrsh7th/cmp-nvim-lsp",     event = { "InsertEnter" } },
-      { "hrsh7th/cmp-nvim-lua",     event = { "InsertEnter" } },
-      { "saadparwaiz1/cmp_luasnip", event = { "InsertEnter" } },
-    },
-  },
-
-  -- snippets
-  {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
-    end,
-  }, --snippet engine
-
-  {
-    "rafamadriz/friendly-snippets",
-  }, -- a bunch of snippets to use
+  { import = "user.lazy.plugins.colorschemes" },
+  { import = "user.lazy.plugins.project" },
+  { import = "user.lazy.plugins.status" },
+  { import = "user.lazy.plugins.edit" },
+  { import = "user.lazy.plugins.filer" },
+  { import = "user.lazy.plugins.terminal" },
+  { import = "user.lazy.plugins.keymap" },
+  { import = "user.lazy.plugins.cmp" },
 
   -- LSP
   {
