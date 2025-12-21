@@ -1,7 +1,9 @@
-local oil = require("oil")
-
-oil.setup(
-  {
+return {
+  "stevearc/oil.nvim",
+  -- dependencies = {
+  --   { "nvim-tree/nvim-web-devicons" },
+  -- },
+  opts = {
     default_file_explore = true,
     delete_to_trash = true,
     skip_confrim_for_simple_edits = false,
@@ -53,6 +55,5 @@ oil.setup(
       ["g."] = { "actions.toggle_hidden", mode = "n" },
       ["g\\"] = { "actions.toggle_trash", mode = "n" },
     },
-
-  }
-)
+  },
+}
