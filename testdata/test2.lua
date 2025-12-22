@@ -1,3 +1,4 @@
+local a = ""
 return {
   -- plugins
   {

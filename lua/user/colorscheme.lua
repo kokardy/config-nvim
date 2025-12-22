@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 vim.cmd([[
 try
-  colorscheme darkplus
+  colorscheme cyberdream
 
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
