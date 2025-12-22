@@ -4,7 +4,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 local opts = {
   opts = {
-    laungage = "Japanese",
+    language = "Japanese",
     log_level = "DEBUG", -- or "TRACE"
   },
   display = {
