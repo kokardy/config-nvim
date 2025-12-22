@@ -1,8 +1,8 @@
-local _M = {}
+-- code companion
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-_M.opts = {
+local opts = {
   opts = {
     laungage = "Japanese",
     log_level = "DEBUG", -- or "TRACE"
@@ -95,4 +95,7 @@ _M.opts = {
   }
 }
 
-return _M
+return {
+  "olimorris/codecompanion.nvim",
+  opts = opts,
+}
