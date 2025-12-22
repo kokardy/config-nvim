@@ -31,11 +31,6 @@ return {
         enable = true,
       },
       indent = { enable = true, disable = { "python", "css" } },
-      -- rainbow
-      rainbow = {
-        enable = true,
-        extended_mode = true,
-      },
     })
 
     vim.treesitter.language.register("yaml", { "yaml", "openapi" })

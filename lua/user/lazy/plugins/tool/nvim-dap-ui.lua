@@ -88,11 +88,12 @@ return {
     end
     require("dap-python").setup(command)
   end,
-  -- dependencies = {
-  --   { "mortepau/codicons.nvim",          opt = true },
-  --   { "theHamsta/nvim-dap-virtual-text", opt = true },
-  --   { "mfussenegger/nvim-dap",           module = { "dap" } },
-  --   { "mfussenegger/nvim-dap-python",    opt = true,        ft = { "python" } },
-  --   { "nvim-neotest/nvim-nio",           opt = true,        ft = { "python" } },
-  -- },
+  -- dependencies必要. ないとエラーになる
+  dependencies = {
+    { "mortepau/codicons.nvim",          opt = true },
+    { "theHamsta/nvim-dap-virtual-text", opt = true },
+    { "mfussenegger/nvim-dap",           module = { "dap" } },
+    { "mfussenegger/nvim-dap-python",    opt = true,        ft = { "python" } },
+    { "nvim-neotest/nvim-nio",           opt = true,        ft = { "python" } },
+  },
 }

@@ -22,7 +22,6 @@ return {
         "dashboard",
         "gitcommit",
         "help",
-        "help",
         "lspinfo",
         "man",
         "neogitstatus",

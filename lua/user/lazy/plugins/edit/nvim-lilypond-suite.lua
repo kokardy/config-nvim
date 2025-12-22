@@ -1,7 +1,6 @@
-
-  -- lilypond
-  return {
-    'martineausimon/nvim-lilypond-suite',
-    ft = { "lilypond" },
-    opts = {},
-  },
+-- lilypond
+return {
+  'martineausimon/nvim-lilypond-suite',
+  ft = { "lilypond" },
+  opts = {},
+}
