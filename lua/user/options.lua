@@ -17,7 +17,6 @@ local options = {
   splitbelow = true,                             -- force all horizontal splits to go below current window
   splitright = true,                             -- force all vertical splits to go to the right of current window
   swapfile = false,                              -- creates a swapfile
-  termguicolors = true,                          -- set term gui colors (most terminals support this)
   timeoutlen = 100,                              -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                               -- enable persistent undo
   updatetime = 300,                              -- faster completion (4000ms default)
@@ -38,6 +37,11 @@ local options = {
   synmaxcol = 500,
   verbosefile = "/tmp/nvim.log",
   -- verbose = 50,
+
+  -- window 透過
+  termguicolors = true,                          -- set term gui colors (most terminals support this)
+  winblend = 0,
+  -- pumblend = 0,
 }
 
 vim.opt.shortmess:append("c")
