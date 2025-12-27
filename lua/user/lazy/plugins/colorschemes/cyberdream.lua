@@ -15,6 +15,8 @@ return {
       highlights = {
         Comment = { fg = "#FF00FF" },
         Visual = { bg = "#225555" },
+        LineNr = { fg = "#BBBBBB" },
+        CursorLineNr = { bg = "blue", fg = "yellow", },
       },
     })
   end,

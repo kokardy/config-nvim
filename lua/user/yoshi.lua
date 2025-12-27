@@ -4,7 +4,7 @@ local yoshi = {
 	"             /＼  ／ヽ",
 	"            {／￣￣￣ヽ!",
 	"            ∠＿＿╋＿＿ｊ",
-	"    ヨシ!   / (.)八(.)  ヽ",
+	"保存ヨシ!   / (.)八(.)  ヽ",
 	"           ｛=/(人_)=|´￣)｀ヽ",
 	"            ＼ { {_,ﾉ ﾉ   //~ `",
 	"        ⊂￣ヽ_＞―――‐''’,〈   (＿)",
@@ -19,9 +19,6 @@ local yoshi = {
 
 M.setup = function(opt)
 	local notify = require("notify").instance(opt)
-	-- create method
-	-- opt.timeout = 300
-	-- opt.animate = false
 	M.show = function()
 		notify.notify(yoshi, "info", opt)
 	end
@@ -39,8 +36,8 @@ M.setup = function(opt)
 end
 
 M.setup({
-	title = "保存ヨシ!",
-	timeout = 250,
+	title = "保存しました",
+	timeout = 150,
 	animate = false,
 	render = "simple",
 	stages = "slide",
