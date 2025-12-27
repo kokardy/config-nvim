@@ -11,8 +11,11 @@ return {
       transparent = true,
       options = {
         theme = "auto",
-      }
+      },
+      highlights = {
+        Comment = { fg = "#FF00FF" },
+        Visual = { bg = "#225555" },
+      },
     })
-
   end,
 }
