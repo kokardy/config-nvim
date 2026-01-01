@@ -5,5 +5,9 @@ require("user.colorscheme")
 require("user.autocommands")
 
 -- the others
+
+-- ヨシ!
 require("user.yoshi")
 
+-- prequit
+require("user.prequit")
