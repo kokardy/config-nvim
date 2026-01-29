@@ -18,7 +18,9 @@ return {
         wo = {
           foldmethod = "manual", -- indent | manual | expr | syntax
         }
-      }
+      },
+      max_response_size = 1024 * 200, -- 200 KB
+
     }
   },
 }
