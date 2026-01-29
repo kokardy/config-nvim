@@ -63,6 +63,9 @@ M.servers = {
   -- typescript
   "ts_ls",
 
+  -- nix
+  "rnix",
+
   -- sql
   "sqls",
 }

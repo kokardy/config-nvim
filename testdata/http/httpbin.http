@@ -1,25 +1,36 @@
 ### Shared
 
+# @curl-insecure
 
 < {%
   console.log("Setting client_id in global scope")
 %}
 
 
-# @curl-insecure
-###
+### 100KB
+
+GET https://sample.json-format.com/api/download?url=https%3A%2F%2Ffiles.jsons.live%2Femployees%2F5-level%2F100-KB%2Fformatted.json&name=100%20KB%205%20Level%20Formatted.json HTTP/1.1
+
+
+### 
 
 # @name postman-echo-get
-GET /get?foo1=bar1&foo2=bar2
+
+GET /get?foo1=bar1&foo2=bar2 HTTP/1.1
 Host: postman-echo.com
-###
+
+
+### 
 
 # @name postman-echo-get-insecure
-GET /get?foo1=bar1&foo2=bar2
-Host: 162.159.142.41
-###
 
-# @name=get
+GET /get?foo1=bar1&foo2=bar2 HTTP/1.1
+Host: 162.159.142.41
+
+
+### 
+
+# @name get
 
 < {%
   -- lua
@@ -33,16 +44,21 @@ Accept: application/json
   const headers = response.body.headers;
   console.log("Response Headers:", headers);
 %}
-###
 
 
-# @name=stream3
-GET /stream/3
+### 
+
+# @name stream3
+
+GET /stream/3 HTTP/1.1
 Host: httpbin.org
-###
 
-# @name=post
-POST /post?client_id={{client_id}}
+
+### 
+
+# @name post
+
+POST /post?client_id={{client_id}} HTTP/1.1
 Host: httpbin.org
 
 client_id={{client_id}}
