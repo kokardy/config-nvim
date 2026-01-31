@@ -1,5 +1,5 @@
 {
-  "defmain": {
+  "mypyproject": {
     "prefix": "mypyproject",
     "body": [
       "[tool.ruff]",
@@ -18,7 +18,7 @@
       "",
       "[tool.mypy]",
       "# plugins = [\"sqlalchemy.ext.mypy.plugin\",]",
-      "python_version = \"3.12\"",
+      "python_version = \"3.14\"",
       "",
       "[[tool.mypy.overrides]]",
       "module = [",
@@ -41,8 +41,8 @@
       "",
       "[tool.pyright]",
       "reportGeneralTypeIssues = false",
-      "extraPaths = [\"src\", \".venv/lib/python3.12/site-packages\"]",
-      "pythonVersion = \"3.12\""
+      "venv" = \".venv\"",
+      "pythonVersion = \"3.14\""
     ],
     "description": "main function"
   }

@@ -27,8 +27,8 @@
     ],
     "description": "wrapper function(decorator)"
   },
-  "sqlalchemy_model": {
-    "prefix": "sqlalchemy_model",
+  "sql": {
+    "prefix": "sql",
     "body": [
       "from sqlalchemy import Column, BIGINT, String",
       "",
@@ -41,14 +41,14 @@
       "    def __repr__(self) -> str:",
       "        return f\"<${1:User}(id={self.id}, name={self.name})>\""
     ],
-    "description": "wrapper function(decorator)"
+    "description": "SQLAlchemy model class"
   },
-  "sqlalchemy_relationship": {
-    "prefix": "relationship_",
+  "rel": {
+    "prefix": "rel",
     "body": [
       "${1:children}: Mapped[list[\"${2:Child}\"]] = relationship(back_populates=\"${3:parent}\")"
     ],
-    "description": "wrapper function(decorator)"
+    "description": "SQLAlchemy relationship"
   },
   "logger": {
     "prefix": "logger",

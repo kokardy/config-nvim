@@ -1,0 +1,21 @@
+extends sh
+
+# Shebang
+snippet #!
+	#!/usr/bin/env bash
+
+
+snippet initdb
+  psql -v ON_ERROR_STOP=1 --username "\$POSTGRES_USER" <<-EOSQL
+
+  CREATE DATABASE ${1:MYDATABASE}
+    LOCALE_PROVIDER = 'icu'
+    ICU_LOCALE = 'ja-JP'
+    TEMPLATE template0
+    ;
+
+  ALTER DATABASE $1 SET timezone TO 'Asia/Tokyo';
+
+  CREATE USER \${DB_USER} WITH ENCRYPTED PASSWORD '\${DB_PASSWORD}';
+
+  EOSQL
