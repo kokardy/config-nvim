@@ -4,7 +4,6 @@ extends sh
 snippet #!
 	#!/usr/bin/env bash
 
-
 snippet initdb
   psql -v ON_ERROR_STOP=1 --username "\$POSTGRES_USER" <<-EOSQL
 
@@ -18,4 +17,7 @@ snippet initdb
 
   CREATE USER \${DB_USER} WITH ENCRYPTED PASSWORD '\${DB_PASSWORD}';
 
+  GRANT SELECT, UPDATE, DELETE, INSERT ON ALL TABLES IN SCHEMA PUBLIC TO \${DB_USER};
+
   EOSQL
+
