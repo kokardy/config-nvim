@@ -1,0 +1,64 @@
+extends py
+
+# file directory
+snippet __file__ parent directory
+  Path(__file__).parent
+
+# def main
+snippet defmain def main function
+    def main() -> None:
+        pass
+
+    if __name__ == "__main__":
+        main()
+
+# logger_from_toml_file
+snippet logger logger.py from toml file
+  import logging
+  import tomllib as toml
+  from logging import config
+  from pathlib import Path
+
+  CONFIG_PATH = Path(__file__).parent / "logger.toml"
+
+  with open(CONFIG_PATH, "rb") as f:
+      logger_config = toml.load(f)
+      config.dictConfig(logger_config)
+
+  logging.info(f"Logging configuration loaded from {CONFIG_PATH}")
+
+
+  def get_logger(name: str) -> logging.Logger:
+      logger = logging.getLogger(name)
+      return logger
+
+# wrapper decorator
+snippet wrap decorator
+  from functools import wraps
+  from typing import Callable
+
+
+  def A[**P, R](func: Callable[P, R]) -> Callable[P, R]:
+      @wraps(func)
+      def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+          result = func(*args, **kwargs)
+          return result
+
+      return wrapper
+
+# sqlalchemy model
+snippet model sqlalchemy model
+      from sqlalchemy import Column, BIGINT, String
+
+      class ${1:User}(Base):
+          __tablename__ = "${2:users}"
+
+          id = Column(BIGINT, primary_key=True, autoincrement=True)
+          name = Column(String(255), nullable=False)
+
+          def __repr__(self) -> str:
+              return f"<${1:User}(id={self.id}, name={self.name})>"
+
+# sqlalchemy relation ship
+snippet relationship sqlalchemy relationship
+  ${1:children}: Mapped[list["${2:Child}"]] = relationship(back_populates="${3:parent}")

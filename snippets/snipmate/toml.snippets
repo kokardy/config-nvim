@@ -1,0 +1,28 @@
+extends toml
+
+logger python logging.conf in TOML format
+  version = 1
+
+  [formatters.standard]
+  style = "{"
+  format = "{asctime}:[{levelname}][{name}]{message}"
+  # datefmt = "%Y-%m-%dT%H:%M:%SZ%z"
+
+  [formatters.message_only]
+  style = "{"
+  format = "{message}"
+
+  [handlers.console]
+  formatter = "standard"
+  class = "logging.StreamHandler"
+  level = "DEBUG"
+
+  [loggers.__main__]
+  level = "DEBUG"
+  handlers = ["console"]
+  propagate = false
+
+  # default loggerになる
+  [root]
+  level = "DEBUG"
+  handlers = ["console"]

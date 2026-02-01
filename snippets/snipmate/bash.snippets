@@ -1,10 +1,10 @@
-extends sh
+extends bash
 
 # Shebang
-snippet #!
+snippet #! env bash
 	#!/usr/bin/env bash
 
-snippet initdb
+snippet initdb initialize a PostgreSQL
   psql -v ON_ERROR_STOP=1 --username "\$POSTGRES_USER" <<-EOSQL
 
   CREATE DATABASE ${1:MYDATABASE}
