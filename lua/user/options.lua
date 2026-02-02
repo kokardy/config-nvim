@@ -42,6 +42,9 @@ local options = {
   termguicolors = true,                          -- set term gui colors (most terminals support this)
   winblend = 0,
   -- pumblend = 0,
+
+  --folding
+  foldlevel = 99,
 }
 
 vim.opt.shortmess:append("c")
