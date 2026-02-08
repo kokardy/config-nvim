@@ -2,6 +2,7 @@ extends yaml
 
 snippet repos .pre-commit-config.yaml
   repos:
+    # Pre-commit configuration for Ruff
     - repo: https://github.com/astral-sh/ruff-pre-commit
       # Ruff version.
       rev: v0.15.0
@@ -13,8 +14,18 @@ snippet repos .pre-commit-config.yaml
         # Run the formatter.
         - id: ruff-format
           types_or: [ python, pyi ]
+    # Pre-commit configuration for Biome
+    - repo: local
+      hooks:
+        - id: local-biome-check
+          name: biome check
+          entry: bunx @biomejs/biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
+          language: system
+          types: [text]
+          files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?)$"
 
 snippet ruff .pre-commit-config.yaml ruff
+  # Pre-commit configuration for Ruff
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
     rev: v0.15.0
@@ -26,3 +37,14 @@ snippet ruff .pre-commit-config.yaml ruff
       # Run the formatter.
       - id: ruff-format
         types_or: [ python, pyi ]
+
+snippet biome .pre-commit-config.yaml biome
+  # Pre-commit configuration for Biome
+  - repo: local
+    hooks:
+      - id: local-biome-check
+        name: biome check
+        entry: bunx @biomejs/biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
+        language: system
+        types: [text]
+        files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?)$"
