@@ -1,11 +1,13 @@
 ignoreWords:
+  - trror
+  - tarning
+  - tote
+words:
+  - pyproject
+  - biomejs
+  - bunx
   - stylua
   - nvim
   - mypy
   - dmypy
   - venv
-  - trror
-  - tarning
-  - tote
-  - pyproject
-
