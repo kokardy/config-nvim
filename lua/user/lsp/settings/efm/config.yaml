@@ -36,6 +36,12 @@ tools:
     lint-formats:
       - '%f:%l:%c - %m'
       - '%f:%l:%c %m'
+  biome-lint: &biome-lint
+    prefix: biome
+    lint-command: "bunx @biomejs/biome lint --reporter github"
+    lint-formats:
+      - "::%trror title=%*[^,],file=%f,line=%l,endLine=%*[^,],col=%c,endColumn=%*[^:]::%m"
+      - "::%tarning title=%*[^,],file=%f,line=%l,endLine=%*[^,],col=%c,endColumn=%*[^:]::%m"
   javascript-prettier: &javascript-prettier
     lint-command: "prettier ---single-quote"
     lint-formats:
@@ -67,6 +73,8 @@ languages:
   python:
     - <<: *python-mypy
     - <<: *cspell
+  json:
+    - <<: *biome-lint
   javascript:
     - <<: *javascript-prettier
   jsx:
