@@ -37,7 +37,7 @@ local opts = {
           schema = {
             model = {
               -- デフォルトモデルを変更
-              default = "claude-sonnet-4.5",
+              default = "gemini-3.1-pro-preview",
               max_tokens = 16000, -- 環境によってないとエラーになる場合がある
             },
           },
