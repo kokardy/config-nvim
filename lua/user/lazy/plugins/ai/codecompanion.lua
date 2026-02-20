@@ -12,9 +12,10 @@ local opts = {
       auto_scroll = false,
     },
   },
-  strategies = {
+  interactions = {
     chat = {
-      adapter = "copilot",
+      adapter = "gemini_cli",
+      -- adapter = "copilot",
       -- adapter = "gemini",
     },
     inline = {
@@ -28,6 +29,19 @@ local opts = {
   },
   -- [追加]
   adapters = {
+
+    acp = {
+      gemini_cli = function()
+        return require("codecompanion.adapters").extend("gemini_cli", {
+          defaults = {
+            auth_method = "oauth-personal", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
+          },
+          -- env = {
+          --   GEMINI_API_KEY = "cmd:op read op://personal/Gemini_API/credential --no-newline",
+          -- },
+        })
+      end,
+    },
 
     http = {
       -- copilotアダプタを上書き
