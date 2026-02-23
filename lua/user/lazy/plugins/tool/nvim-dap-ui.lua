@@ -81,12 +81,30 @@ return {
     })
 
     -- python
-    local venv = os.getenv("VIRTUAL_ENV")
-    local command = string.format("%s/bin/python", venv)
-    if venv == nil then
-      command = "python"
-    end
-    require("dap-python").setup(command)
+    require("dap-python").setup("uv")
+
+    -- dap
+    local dap = require("dap")
+    table.insert(dap.configurations.python,
+      {
+        type = 'python',
+        request = 'attach',
+        name = "Attach to Docker",
+        connect = {
+          host = "127.0.0.1", -- またはコンテナのIP
+          port = 5678,
+        },
+        -- ここが最重要です
+        pathMappings = {
+          {
+            localRoot = vim.fn.getcwd(), -- ホスト側のプロジェクトルート (Neovimを開いている場所)
+            remoteRoot = "/backend",     -- コンテナ内の作業ディレクトリ (DockerfileのWORKDIRなど)
+          }
+        },
+        -- 外部ライブラリの中もステップインしたい場合は false にします
+        justMyCode = true,
+      }
+    )
   end,
   -- dependencies必要. ないとエラーになる
   dependencies = {
