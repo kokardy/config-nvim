@@ -50,6 +50,34 @@ def main() -> None:
 
     print(textwrap.dedent(t).strip())
 
+    trigger_more_errors()
+
+
+def trigger_more_errors() -> None:
+    # 1. Incompatible return type
+    def get_int() -> int:
+        return "string"
+
+    # 2. Argument count mismatch
+    def take_two(a: int, b: int) -> None:
+        pass
+
+    take_two(1)
+
+    # 3. List item type mismatch
+    numbers: list[int] = [1, 2, "3"]
+
+    # 4. Dict key/value type mismatch
+    data: dict[str, int] = {"key": "value"}
+
+    # 5. Accessing non-existent attribute
+    x: int = 10
+    x.append(5)
+
+    # 6. Unused variable (Linter warning)
+    unused_var = 100
+
 
 if __name__ == "__main__":
     main()
+
