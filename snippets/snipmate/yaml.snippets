@@ -1,5 +1,61 @@
 extends yaml
 
+
+snippet backend docker-compose.yaml
+  app:
+    build:
+      dockerfile: ./backend/Dockerfile
+      context: .
+    ports:
+      - "5678:5678"
+      - "8000:8000"
+    env_file:
+      - .env.local
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+    volumes:
+      - ./backend/src:/backend/src
+      - ./backend/tests:/backend/tests
+
+    command:
+      - /bin/bash
+      - -c
+      - |
+        uv add debugpy && \
+        uv run -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m uvicorn app.main:app --app-dir src --host 0.0.0.0 --port 8000 --reload
+    # command: ["uv", "run", "uvicorn app.main.app --app-dir src --host 0.0.0.0 --port 8000 --reload"]
+    # command: ["tail", "-f", "/dev/null"]
+    depends_on:
+      - redis
+      - db
+
+snippet redis docker-compose.yaml
+  services:
+    redis:
+      image: "redis:alpine"
+      env_file:
+        - .env.local
+      ports:
+        - "6379:6379"
+      volumes:
+        - redis_data:/data
+  volumes:
+    redis_data:
+
+snippet postgresql docker-compose.yaml
+  services:
+    db:
+      image: "postgres:latest"
+      env_file:
+        - .env
+      ports:
+        - "5432:5432"
+      volumes:
+        - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+        - pg_data:/var/lib/postgresql
+  volumes:
+    pg_data:
+
 snippet pre-commit .pre-commit-config.yaml
   repos:
     # Pre-commit configuration for Ruff
