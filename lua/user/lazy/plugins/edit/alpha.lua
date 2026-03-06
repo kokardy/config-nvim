@@ -40,5 +40,7 @@ return {
     dashboard.opts.opts.noautocmd = true
     -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
     alpha.setup(dashboard.opts)
+
+    vim.keymap.set("n", "<leader>A", "<cmd>Alpha<cr>", { desc = "Open Alpha: dashboard" })
   end,
 }
