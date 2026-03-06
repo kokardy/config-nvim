@@ -14,8 +14,8 @@ local opts = {
   },
   interactions = {
     chat = {
-      adapter = "gemini_cli",
-      -- adapter = "copilot",
+      adapter = "copilot",
+      -- adapter = "gemini_cli",
       -- adapter = "gemini",
     },
     inline = {
@@ -52,7 +52,7 @@ local opts = {
             model = {
               -- デフォルトモデルを変更
               default = "gemini-3.1-pro-preview",
-              max_tokens = 16000, -- 環境によってないとエラーになる場合がある
+              max_tokens = 128000, -- 環境によってないとエラーになる場合がある
             },
           },
         })

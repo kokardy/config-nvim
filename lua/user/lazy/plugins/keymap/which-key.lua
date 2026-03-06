@@ -25,7 +25,6 @@ return {
       },
       { "<leader>S",  group = "Sidebar",            nowait = true,          remap = false },
       { "<leader>St", "<cmd>SidebarNvimToggle<cr>", desc = "SidebarToggle", nowait = true, remap = false },
-      { "<leader>a",  "<cmd>Alpha<cr>",             desc = "Alpha",         nowait = true, remap = false },
       {
         "<leader>b",
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
