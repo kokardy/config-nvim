@@ -26,3 +26,15 @@ snippet logger python logging.conf in TOML format
   [root]
   level = "DEBUG"
   handlers = ["console"]
+
+snippet pyproject.toml pyproject.toml for Python project
+  [tool.pytest.ini_options]
+  testpaths = ["tests"]
+  pythonpath = ["src"]
+
+  [tool.pyright]
+  venvPath = "./.venv"
+  venv = "."
+
+  [tool.ty.environment]
+  python = ".venv"
