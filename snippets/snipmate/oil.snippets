@@ -2,13 +2,13 @@ extends oil
 
 # Shebang
 snippet layer layered architecture directories
-  core/
+  core/logger/__init__.py
+  core/logger/logger.py
+  core/env.py
   domain/repository/
   domain/model/
-  infrastructure/
-  usecase/
+  infrastructure/model/
+  usecase/command/
+  usecase/query_service/
   presentation/router/
   presentation/schema/
-  logger/__init__.py
-  logger/logger.py
-
