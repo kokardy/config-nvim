@@ -19,25 +19,25 @@ return {
   -- these are just suggested keymaps; customize as desired
   keys = {
     {
-      "<C-^>",
+      "<leader>at",
       function() require("agentic").toggle() end,
       mode = { "n", "v", "i" },
       desc = "Toggle Agentic Chat"
     },
     {
-      "<C-'>",
+      "<leader>af",
       function() require("agentic").add_selection_or_file_to_context() end,
       mode = { "n", "v" },
       desc = "Add file or selection to Agentic to Context"
     },
     {
-      "<C-,>",
+      "<leader>an",
       function() require("agentic").new_session() end,
       mode = { "n", "v", "i" },
       desc = "New Agentic Session"
     },
     {
-      "<A-i>r", -- ai Restore
+      "<leader>ar", -- ai Restore
       function()
         require("agentic").restore_session()
       end,
