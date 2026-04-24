@@ -23,7 +23,7 @@ curl https://sh.rustup.rs -sSf | sh
 
 sudo apt-get install luarocks xsel
 sudo bun install --global yarn tree-sitter prettier pyright neovim spectral-language-server
-cargo install remark stylua ripgrep fd-find typos-cli bob
+cargo install remark stylua ripgrep fd-find typos-cli bob-nvim
 uv install pynvim black isort ruff mypy ty
 
 # nvim
