@@ -1,4 +1,5 @@
 -- rest http
+vim.treesitter.language.register("kulala_http", "http")
 return {
   "mistweaverco/kulala.nvim",
   keys = {
