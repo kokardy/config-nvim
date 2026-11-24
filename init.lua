@@ -9,5 +9,8 @@ require("user.autocommands")
 -- ヨシ!
 require("user.yoshi")
 
+-- send_terminal
+require("user.send_terminal")
+
 -- prequit
 require("user.prequit")
