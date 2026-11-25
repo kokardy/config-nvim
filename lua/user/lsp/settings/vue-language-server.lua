@@ -1,3 +1,3 @@
 return {
-  cmd = { "vue-language-server"},
+  cmd = { "vue-language-server" },
 }

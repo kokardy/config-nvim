@@ -16,7 +16,7 @@ return {
     local flash = require("flash")
 
     -- highlight color for flash
-    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#FF0000", bg= "#00FFFF" })
+    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#FF0000", bg = "#00FFFF" })
 
     flash.setup({})
   end

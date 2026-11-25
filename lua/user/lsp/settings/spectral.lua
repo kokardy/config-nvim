@@ -13,8 +13,8 @@ end
 return {
   cmd = { "spectral-language-server", "-F hint", "--stdio" },
   filetypes = { "openapi" },
-  settings ={
-    enable=true,
+  settings = {
+    enable = true,
     validateLanguages = { "openapi" },
   }
   -- root_dir = root_dir,
