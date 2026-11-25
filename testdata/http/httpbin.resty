@@ -1,0 +1,72 @@
+# Global variables
+@client_id = your_client_id
+@name = resty
+
+### #100KB
+
+GET https://sample.json-format.com/api/download?url=https%3A%2F%2Ffiles.jsons.live%2Femployees%2F5-level%2F100-KB%2Fformatted.json&name=100%20KB%205%20Level%20Formatted.json HTTP/1.1
+
+### #postman-echo-get
+
+GET https://postman-echo.com/get?foo1=bar1&foo2=bar2&client_id={{client_id}}&name={{name}} HTTP/1.1
+### #postman-echo-get-insecure
+
+@cfg.insecure = true
+
+GET https://162.159.142.41/get?foo1=bar1&foo2=bar2 HTTP/1.1
+Host: postman-echo.com
+
+### #get
+
+@foo3 = bar3
+
+GET https://postman-echo.com/get?foo1=bar1&foo2=bar2&foo3={{foo3}} HTTP/1.1
+Accept: application/json
+
+> {%
+  local body = ctx.json_body()
+  if body and body.headers then
+    ctx.set("last_host", body.headers.host or "")
+  end
+%}
+
+### #stream3
+
+GET https://httpbin.org/stream/3 HTTP/1.1
+
+### #post
+
+@cfg.check_json_body = true
+
+POST https://httpbin.org/post?client_id={{client_id}} HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "client_id": "{{client_id}}"
+}
+
+### #save-response-json
+
+POST https://httpbin.org/post HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "token": "sample-token-123"
+}
+
+> {%
+  local f = assert(io.open("/tmp/resty_response.json", "w"))
+  f:write(ctx.result.body)
+  f:close()
+%}
+
+### #bearer-from-json-file
+
+@token = {{> jq -r '.json.token' /tmp/resty_response.json}}
+
+GET https://httpbin.org/bearer HTTP/1.1
+Accept: application/json
+Authorization: Bearer {{token}}
+

@@ -23,6 +23,7 @@ return {
         nowait = true,
         remap = false,
       },
+      { "<leader>R", group = "Resty", nowait = true, remap = false },
       { "<leader>S",  group = "Sidebar",            nowait = true,          remap = false },
       { "<leader>St", "<cmd>SidebarNvimToggle<cr>", desc = "SidebarToggle", nowait = true, remap = false },
       {
